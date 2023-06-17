@@ -1,0 +1,21 @@
+.container {
+  background-color: var(--pixema-secondary-color);
+  border-radius: 10px;
+  color: var(--pixema-white-color);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  > input {
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+    display: block;
+    padding: 16px 20px;
+    color: var(--pixema-white-color);
+    &::placeholder {
+      color: var(--pixema-light-color);
+    }
+    &:focus-visible {
+      outline: 1px solid var(--pixema-primary-color);
+    }
+  }
+}
