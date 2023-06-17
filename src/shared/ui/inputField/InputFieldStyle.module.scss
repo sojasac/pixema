@@ -15,7 +15,7 @@
       color: var(--pixema-light-color);
     }
     &:focus-visible {
-      outline: 1px solid var(--pixema-primary-color);
+      outline: none;
     }
   }
 }

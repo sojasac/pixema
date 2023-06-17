@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  .userIconWrap {
+    width: 56px;
+    height: 56px;
+    background-color: var(--pixema-primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: default;
+  }
+  .userMainWrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    > h3 {
+      cursor: default;
+    }
+  }
+}
