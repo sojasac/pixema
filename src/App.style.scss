@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
+:root {
+  // System colors
+  --pixema-primary-color: #7b61ff;
+  --pixema-primary-2-color: #917cff;
+  --pixema-secondary-color: #80858b;
+  // Background colors
+  --pixema-background-black: #000;
+  --pixema-background-dark: #242426;
+  --pixema-background-graphite: #323537;
+  // Contextual Colors
+  --pixema-error-color: #ff5154;
+  --pixema-light-color: #afb2b6;
+  --pixema-white-color: #fff;
+  // Tertiary Colors
+  --pixema-green-color: #00a340;
+  --pixema-yellow-color: #f3a608;
+  --pixema-orange-color: #f45d2d;
+
+  // ________________________________
+  --pixema-text-color: var(--pixema-light-color);
+}
+
+body {
+  background-color: var(--pixema-background-black);
+  font-family: 'Exo 2', sans-serif;
+  color: var(--pixema-text-color);
+}
