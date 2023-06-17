@@ -1,10 +1,9 @@
 import './App.style.scss';
-import { Button } from './shared/ui/button/Button';
+import { Navbar } from './features/navbar/Navbar';
 export const App = () => {
   return (
     <div>
-      <h1>Get Started</h1>
-      <Button>Primary</Button>
+      <Navbar />
     </div>
   );
 };
