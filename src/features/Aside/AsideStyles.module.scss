@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  > div {
+    display: flex;
+    gap: 25px;
+    &:hover {
+      > a {
+        color: var(--pixema-primary-color);
+      }
+      > svg {
+        fill: var(--pixema-primary-color);
+        stroke: var(--pixema-primary-color);
+      }
+    }
+    > a {
+      text-decoration: none;
+      color: var(--pixema-white-color);
+    }
+    > svg {
+      fill: var(--pixema-white-color);
+      stroke: var(--pixema-white-color);
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { Aside } from '~/features/Aside/Aside';
 import { Footer } from '~/features/Footer/Footer';
 import { Navbar } from '~/features/navbar/Navbar';
 
@@ -7,7 +8,9 @@ export const MainLayout = () => {
   return (
     <div className={MainLayoutStyle.container}>
       <Navbar />
-      <main></main>
+      <main>
+        <Aside />
+      </main>
       <Footer />
     </div>
   );
