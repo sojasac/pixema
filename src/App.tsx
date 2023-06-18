@@ -1,11 +1,9 @@
 import './App.style.scss';
-import { Footer } from './features/Footer/Footer';
-import { Navbar } from './features/navbar/Navbar';
+import { MainLayout } from './layouts/MainLayout/MainLayout';
 export const App = () => {
   return (
     <div>
-      <Navbar />
-      <Footer />
+      <MainLayout />
     </div>
   );
 };

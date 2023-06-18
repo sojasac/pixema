@@ -1,0 +1,19 @@
+.container {
+  --pixema-max-width: 1920px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 65px;
+
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 370px 1fr;
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+    margin: auto;
+  }
+}
