@@ -1,6 +1,6 @@
 import { Logo } from './Logo/Logo';
 import NavbarStyle from './NavbarStyles.module.scss';
-import { SearchPanel } from './SearchPanel/SearchPanel';
+import { SearchPanel } from './SearchBar/SearchPanel';
 import { UserPanel } from './UserPanel/UserPanel';
 const user = {
   id: 12,
