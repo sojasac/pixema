@@ -1,8 +1,8 @@
 import { Aside } from '~/features/Aside/Aside';
 import { Footer } from '~/features/Footer/Footer';
+import { SignIn } from '~/features/Forms/SignIn/SignInForm';
 import { Logo } from '~/features/Logo/Logo';
 import { Navbar } from '~/features/navbar/Navbar';
-import { SignUp } from '~/features/SignUp/SignUpForm';
 
 import MainLayoutStyle from './MainLayoutStyles.module.scss';
 
@@ -13,7 +13,7 @@ export const MainLayout = () => {
       <Navbar />
       <main>
         <Aside />
-        <SignUp />
+        <SignIn />
       </main>
       <Footer />
     </div>

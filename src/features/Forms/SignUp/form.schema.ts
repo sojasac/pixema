@@ -1,4 +1,4 @@
-import { type FormField } from '~/features/SignUp/forms.types';
+import { type FormField } from '~/features/Forms/SignUp/forms.types';
 
 export const formSchema: FormField[] = [
   {
