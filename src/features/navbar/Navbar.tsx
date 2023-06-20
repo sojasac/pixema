@@ -1,4 +1,3 @@
-import { Logo } from './Logo/Logo';
 import NavbarStyle from './NavbarStyles.module.scss';
 import { SearchPanel } from './SearchBar/SearchPanel';
 import { UserPanel } from './UserPanel/UserPanel';
@@ -14,7 +13,6 @@ const user = {
 export const Navbar = () => {
   return (
     <header className={NavbarStyle.container}>
-      <Logo />
       <div className={NavbarStyle.activePanels}>
         <SearchPanel />
         <UserPanel user={user} />

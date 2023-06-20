@@ -19,8 +19,8 @@ export const UserPanel = ({ user = null }: { user?: User | null }) => {
         <h3>{user ? `${user.first_name} ${user.last_name}` : 'Sign In'}</h3>
         <Button
           style={{
-            width: 'auto',
-            height: 'auto',
+            width: '25px',
+            height: '25px',
             background: 'transparent',
             border: 'none'
           }}

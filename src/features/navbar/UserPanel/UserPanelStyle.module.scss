@@ -16,7 +16,8 @@
   }
   .userMainWrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 50px;
     > h3 {
       cursor: default;

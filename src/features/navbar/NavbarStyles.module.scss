@@ -1,12 +1,12 @@
 .container {
   width: 100%;
   padding: 40px 0 56px 0;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 100px;
+  display: flex;
+  justify-content: end;
   align-items: center;
   color: var(--pixema-white-color);
   .activePanels {
+    width: 80%;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 40px;
