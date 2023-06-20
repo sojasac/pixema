@@ -1,11 +1,13 @@
 .container {
-  background-color: var(--pixema-secondary-color);
   border-radius: 10px;
   color: var(--pixema-white-color);
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: column;
+  > label {
+    margin-bottom: 8px;
+  }
   > input {
-    background-color: transparent;
+    background-color: var(--pixema-secondary-color);
     border-radius: 10px;
     border: none;
     display: block;
