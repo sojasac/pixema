@@ -1,0 +1,10 @@
+.container {
+  background-color: var(--pixema-background-dark);
+  width: 50%;
+  margin: auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-radius: 10px;
+}
