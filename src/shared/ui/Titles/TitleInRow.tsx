@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as FavoritesSvg } from '~/assets/svg/favorites.svg';
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
@@ -24,12 +23,18 @@ export const TitleInRow = ({
   isFavorites?: boolean;
   isTrends?: boolean;
 }) => {
+  const date = new Date(releaseDate).toLocaleString('en', {
+    month: 'long',
+    year: 'numeric'
+  });
   return (
     <div className={TitleStyle.container}>
-      <div
-        style={{ backgroundImage: `url(${poster})` }}
-        className={TitleStyle.posterWrap}
-      >
+      <div className={TitleStyle.posterWrap}>
+        <img
+          src={poster}
+          alt="Title_poster"
+          className={TitleStyle.posterImg}
+        />
         <div
           className={classNames({
             [TitleStyle.ratingWrap]: true,
@@ -51,8 +56,10 @@ export const TitleInRow = ({
         )}
       </div>
       <div>
-        <NavLink to="#">{name}</NavLink>
-        <div>{releaseDate}</div>
+        <div className={TitleStyle.name}>
+          <a href="#">{name}</a>
+        </div>
+        <div className={TitleStyle.date}>{date}</div>
       </div>
     </div>
   );

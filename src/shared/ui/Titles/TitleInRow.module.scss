@@ -6,11 +6,21 @@
   .posterWrap {
     position: relative;
     border-radius: 20px;
+    .posterImg {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
     .ratingWrap {
       position: absolute;
       top: 20px;
       left: 20px;
+      min-width: 25px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      text-align: center;
       color: var(--pixema-white-color);
+      cursor: default;
     }
     .favoritesWrap {
       background-color: var(--pixema-secondary-color);
@@ -20,11 +30,15 @@
     }
   }
   .name {
-    text-decoration: none;
-    color: var(--pixema-white-color);
+    margin-bottom: 10px;
+    > a {
+      text-decoration: none;
+      color: var(--pixema-white-color);
+    }
   }
   .date {
     color: var(--pixema-light-color);
+    cursor: default;
   }
 }
 
