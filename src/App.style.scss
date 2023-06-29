@@ -21,6 +21,7 @@
 
   // ________________________________
   --pixema-text-color: var(--pixema-light-color);
+  --pixema-header-height: 115px;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
   color: var(--pixema-text-color);
   margin: 0;
   padding: 0;
+  position: relative;
 }
 a {
   text-decoration: none;

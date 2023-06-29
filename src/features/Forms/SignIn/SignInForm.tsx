@@ -55,7 +55,7 @@ export const SignIn = () => {
           Sign in
         </Button>
         <p style={{ textAlign: 'center', marginTop: '10px' }}>
-          Don’t have an account? <NavLink to="/sign-up">Sign up</NavLink>
+          Don’t have an account? <NavLink to="/auth/sign-up">Sign up</NavLink>
         </p>
       </div>
     </form>
