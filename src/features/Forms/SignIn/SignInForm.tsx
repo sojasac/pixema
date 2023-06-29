@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import { Button } from '~/shared/ui/button/Button';
 import { InputField } from '~/shared/ui/inputField/InputField';
 
@@ -15,6 +17,7 @@ export const SignIn = () => {
         event.preventDefault();
       }}
     >
+      <h2>Sign in</h2>
       <div>
         <InputField
           id="email"
@@ -52,8 +55,7 @@ export const SignIn = () => {
           Sign in
         </Button>
         <p style={{ textAlign: 'center', marginTop: '10px' }}>
-          Don’t have an account?{' '}
-          <a style={{ color: '#2231AA', cursor: 'pointer' }}>Sign Up</a>
+          Don’t have an account? <NavLink to="/sign-up">Sign up</NavLink>
         </p>
       </div>
     </form>

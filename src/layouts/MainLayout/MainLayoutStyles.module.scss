@@ -3,6 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0 65px;
   position: relative;
 
@@ -13,8 +14,12 @@
     width: 100%;
   }
 
+  form {
+    margin: auto, auto;
+  }
+
   footer {
     width: 100%;
-    margin: auto;
+    margin: 0, auto;
   }
 }

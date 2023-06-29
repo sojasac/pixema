@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import { AsideSchema } from './Aside.schema';
 import AsideStyles from './AsideStyles.module.scss';
 export const Aside = () => {
@@ -6,7 +8,7 @@ export const Aside = () => {
       {AsideSchema.map((link) => (
         <div key={link.path}>
           {link.icon}
-          <a href={link.path}>{link.title}</a>
+          <NavLink to={link.path}>{link.title}</NavLink>
         </div>
       ))}
     </aside>
