@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { ReactComponent as UserIcon } from '~/assets/svg/user.svg';
 import { ReactComponent as VectorDown } from '~/assets/svg/vectorDown.svg';
 import { ReactComponent as VectorRight } from '~/assets/svg/vectorRight.svg';
@@ -10,6 +12,7 @@ const getUserInitials = (user: User) => {
 
 import UserStyles from './UserPanelStyle.module.scss';
 export const UserPanel = ({ user = null }: { user?: User | null }) => {
+  const navigation = useNavigate();
   return (
     <div className={UserStyles.container}>
       <div className={UserStyles.userIconWrap}>
@@ -25,6 +28,7 @@ export const UserPanel = ({ user = null }: { user?: User | null }) => {
             border: 'none'
           }}
           icon={user ? <VectorDown /> : <VectorRight />}
+          onClick={user ? undefined : () => navigation('/sign-in')}
         />
       </div>
     </div>

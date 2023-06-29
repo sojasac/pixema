@@ -1,5 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import FormStyles from '~/features/Forms/FormsStyles.module.scss';
 import { Button } from '~/shared/ui/button/Button';
 import { InputField } from '~/shared/ui/inputField/InputField';
@@ -27,6 +29,7 @@ export const SignUp = () => {
       className={FormStyles.container}
       onSubmit={(event) => event.preventDefault()}
     >
+      <h2>Sign up</h2>
       {formSchema.map((field) => (
         <InputField
           {...field}
@@ -49,7 +52,7 @@ export const SignUp = () => {
           Sign Up
         </Button>
         <p style={{ textAlign: 'center', marginTop: '10px' }}>
-          Already have an account? <a style={{ color: '#2231AA' }}>Sign In</a>
+          Already have an account? <NavLink to="/sign-in">Sign In</NavLink>
         </p>
       </div>
     </form>
