@@ -22,7 +22,7 @@ export const fetchTitles = createAsyncThunk(
       {
         headers,
         params: {
-          limit: titlesPerPage
+          perPage: titlesPerPage
         },
         signal
       }

@@ -18,7 +18,6 @@ const routerSchema = createBrowserRouter([
     ]
   },
   {
-    path: '/auth',
     Component: FormsLayout,
     children: [
       {

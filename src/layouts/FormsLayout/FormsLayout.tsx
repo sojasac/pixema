@@ -15,8 +15,8 @@ export const FormsLayout = () => {
         [LayoutStyle.formsLayout]: true
       })}
     >
+      <Logo />
       <div style={{ position: 'relative' }}>
-        <Logo />
         <main className={FormLayoutStyle.mainAuth}>
           <Outlet />
         </main>
