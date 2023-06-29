@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { SignIn } from '~/features/Forms/SignIn/SignInForm';
 import { SignUp } from '~/features/Forms/SignUp/SignUpForm';
+import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
 import { HomePage } from '~/pages/HomePage/HomePage';
 
@@ -13,13 +14,19 @@ const routerSchema = createBrowserRouter([
       {
         index: true,
         Component: HomePage
-      },
+      }
+    ]
+  },
+  {
+    path: '/auth',
+    Component: FormsLayout,
+    children: [
       {
-        path: '/sign-in',
+        path: '/auth/sign-in',
         Component: SignIn
       },
       {
-        path: '/sign-up',
+        path: '/auth/sign-up',
         Component: SignUp
       }
     ]

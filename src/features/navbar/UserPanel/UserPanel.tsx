@@ -28,7 +28,7 @@ export const UserPanel = ({ user = null }: { user?: User | null }) => {
             border: 'none'
           }}
           icon={user ? <VectorDown /> : <VectorRight />}
-          onClick={user ? undefined : () => navigation('/sign-in')}
+          onClick={user ? undefined : () => navigation('/auth/sign-in')}
         />
       </div>
     </div>
