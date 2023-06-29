@@ -2,17 +2,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { SignIn } from '~/features/Forms/SignIn/SignInForm';
 import { SignUp } from '~/features/Forms/SignUp/SignUpForm';
-import { MainLayout } from '~/layouts/MainLayout/MainLayout';
-import { MainPage } from '~/pages/MainPage/MainPage';
+import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
+import { HomePage } from '~/pages/HomePage/HomePage';
 
 const routerSchema = createBrowserRouter([
   {
     path: '/',
-    Component: MainLayout,
+    Component: TitleLayout,
     children: [
       {
         index: true,
-        Component: MainPage
+        Component: HomePage
       },
       {
         path: '/sign-in',
