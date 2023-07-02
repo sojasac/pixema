@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Aside } from '~/features/Aside/Aside';
+// import { Aside } from '~/features/Aside/Aside';
 import { Footer } from '~/features/Footer/Footer';
 import { Logo } from '~/features/Logo/Logo';
 import { Navbar } from '~/features/navbar/Navbar';
@@ -14,7 +14,7 @@ export const TitleLayout = () => {
       <Logo />
       <Navbar />
       <div className={TitleLayoutStyle.mainContent}>
-        <Aside />
+        {/* <Aside /> */}
         <main>
           <Outlet />
         </main>
