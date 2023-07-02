@@ -1,23 +1,20 @@
 import { ReactComponent as FavoritesSvg } from '~/assets/svg/favorites.svg';
 import { ReactComponent as HomeSvg } from '~/assets/svg/home.svg';
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
-const home = <HomeSvg />;
-const trends = <TrendsSvg />;
-const favorites = <FavoritesSvg />;
 
-export const AsideSchema = [
+export const MenuSchema = [
   {
-    icon: home,
+    icon: <HomeSvg />,
     path: '/',
     title: 'Home'
   },
   {
-    icon: trends,
+    icon: <TrendsSvg />,
     path: '/trends',
     title: 'Trends'
   },
   {
-    icon: favorites,
+    icon: <FavoritesSvg />,
     path: '/favorites',
     title: 'Favorites'
   }
