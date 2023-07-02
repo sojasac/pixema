@@ -1,36 +1,61 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
+import { MainTitle } from '~/shared/ui/Titles/MainTitle';
 import { TitleInRow } from '~/shared/ui/Titles/TitleInRow';
 import { useAppDispatch, useAppSelector } from '~/store/store.type';
 import { selectTitles } from '~/store/titles/title.selectors';
 import { fetchTitles } from '~/store/titles/titles.api';
+import { type MovieCard } from '~/store/titles/titles.types';
 
 import HomePageStyles from './HomePage.module.scss';
+
 export const HomePage = () => {
   const titles = useAppSelector(selectTitles);
-  const dispatch = useAppDispatch();
+  const dispatchTitles = useAppDispatch();
+  const [mainTitle, setMainTitle] = useState<MovieCard[] | []>([]);
   useEffect(() => {
-    const promise = dispatch(fetchTitles({}));
+    setMainTitle(titles.filter((title) => +title.rating > 7.2));
+    const promise = dispatchTitles(fetchTitles({}));
     return () => promise.abort('cancelled');
-  }, [dispatch]);
+  }, [dispatchTitles, setMainTitle, titles]);
   return (
-    <div className={HomePageStyles.titlesWrap}>
-      {titles.map((title) => (
-        <TitleInRow
-          key={title.id}
-          rating={title.rating}
-          poster={title.poster}
-          name={title.name}
-          apperance={
-            +title.rating > 7
-              ? 'highRating'
-              : +title.rating < 7.5 && +title.rating > 4.9
-              ? 'middleRating'
-              : 'lowRating'
+    <div>
+      <h2>Title of the day</h2>
+      <div>
+        {mainTitle.map((title, id) => {
+          const titleId = 0;
+          if (id === titleId) {
+            return (
+              <MainTitle
+                key={title.id}
+                rating={title.rating}
+                poster={title.poster}
+                name={title.name}
+                tagline={title.tagline}
+              />
+            );
           }
-          releaseDate={title.release_date}
-        />
-      ))}
+        })}
+      </div>
+      <h2>All titles</h2>
+      <div className={HomePageStyles.titlesWrap}>
+        {titles.map((title) => (
+          <TitleInRow
+            key={title.id}
+            rating={title.rating}
+            poster={title.poster}
+            name={title.name}
+            apperance={
+              +title.rating > 7
+                ? 'highRating'
+                : +title.rating < 7.5 && +title.rating > 4.9
+                ? 'middleRating'
+                : 'lowRating'
+            }
+            releaseDate={title.release_date}
+          />
+        ))}
+      </div>
     </div>
   );
 };

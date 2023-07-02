@@ -1,5 +1,11 @@
 .titlesWrap {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
+}
+h2 {
+  font-size: 50px;
+  color: var(--pixema-white-color);
+  margin-bottom: 50px;
 }
