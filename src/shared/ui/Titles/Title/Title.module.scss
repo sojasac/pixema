@@ -1,0 +1,105 @@
+.container {
+  display: grid;
+  grid-template-columns: 30% auto;
+  max-width: 100%;
+  gap: 50px;
+  .posterWrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    .posterImg {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border-radius: 20px;
+      transition: 1s;
+      object-fit: contain;
+    }
+    margin-bottom: 10px;
+  }
+  .actionsWrap {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .ratingWrap {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    .ratingItem {
+      min-width: 25px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      text-align: center;
+      background-color: var(--pixema-secondary-color);
+      color: var(--pixema-white-color);
+      cursor: default;
+      > span {
+        font-weight: 700;
+      }
+    }
+    .highRating {
+      background-color: var(--pixema-green-color);
+    }
+    .middleRating {
+      background-color: var(--pixema-yellow-color);
+    }
+    .lowRating {
+      background-color: var(--pixema-error-color);
+    }
+  }
+  .description {
+    font-size: 24px;
+    color: var(--pixema-white-color);
+    margin-bottom: 50px;
+  }
+  table {
+    width: 80%;
+    tr {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      .tableKeys {
+        min-width: 60%;
+      }
+      .tableValues {
+        color: var(--pixema-white-color);
+        text-align: right;
+        p {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: end;
+          .personsContent {
+            position: relative;
+            width: fit-content;
+            margin: 0;
+            .personPhotoWrap {
+              width: 100px;
+              height: 100px;
+              position: absolute;
+              top: -110px;
+              left: calc(50% - 50px);
+              visibility: hidden;
+              img {
+                border-radius: 1.5rem;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            &:hover .personPhotoWrap {
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+    a {
+      color: var(--pixema-white-color);
+      &:hover {
+        color: var(--pixema-primary-color);
+      }
+    }
+  }
+}
