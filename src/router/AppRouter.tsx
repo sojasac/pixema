@@ -5,6 +5,7 @@ import { SignUp } from '~/features/Forms/SignUp/SignUpForm';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
 import { HomePage } from '~/pages/HomePage/HomePage';
+import { TitlePage } from '~/pages/TitlePage/TitlePage';
 
 const routerSchema = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const routerSchema = createBrowserRouter([
       {
         index: true,
         Component: HomePage
+      },
+      {
+        path: 'titles/:id',
+        Component: TitlePage
       }
     ]
   },

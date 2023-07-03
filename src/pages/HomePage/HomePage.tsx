@@ -28,10 +28,7 @@ export const HomePage = () => {
             return (
               <MainTitle
                 key={title.id}
-                rating={title.rating}
-                poster={title.poster}
-                name={title.name}
-                tagline={title.tagline}
+                title={title}
               />
             );
           }
@@ -42,9 +39,7 @@ export const HomePage = () => {
         {titles.map((title) => (
           <TitleInRow
             key={title.id}
-            rating={title.rating}
-            poster={title.poster}
-            name={title.name}
+            title={title}
             apperance={
               +title.rating > 7
                 ? 'highRating'
@@ -52,7 +47,6 @@ export const HomePage = () => {
                 ? 'middleRating'
                 : 'lowRating'
             }
-            releaseDate={title.release_date}
           />
         ))}
       </div>

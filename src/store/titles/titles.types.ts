@@ -38,4 +38,42 @@ export interface TitlesResponse {
   pagination: Pagination;
   status: string;
 }
+export interface Genres {
+  id: number;
+  type: string;
+  name: string;
+  display_name: string;
+}
+
+export interface TitleImage {
+  id: number;
+  url: string;
+  type: string;
+  source: string;
+}
+export interface TitleEntity {
+  id: number;
+  name: string;
+  type: string;
+  release_date: string;
+  year: number;
+  description: string;
+  tagline: string;
+  poster: string;
+  runtime: number;
+  budget: number;
+  revenue: number;
+  language: string;
+  country: string;
+  original_title: string;
+  adult: boolean;
+  rating: number;
+  genres: Genres[];
+  images: TitleImage[];
+}
+
+export interface TitleResponse {
+  title: TitleEntity;
+  status: string;
+}
 /* eslint-enable @typescript-eslint/naming-convention*/
