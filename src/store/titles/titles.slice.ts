@@ -14,7 +14,7 @@ export const getInitialState = (): {
     error: ''
   };
 };
-export const TitleSlice = createSlice({
+export const TitlesSlice = createSlice({
   name: 'titles',
   initialState: getInitialState,
   reducers: {},
@@ -29,4 +29,4 @@ export const TitleSlice = createSlice({
   }
 });
 
-export const { actions: titlesActions } = TitleSlice;
+export const { actions: titlesActions } = TitlesSlice;

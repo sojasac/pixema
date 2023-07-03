@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { listenerMiddleware } from './store.middleware';
-import { TitleSlice } from './titles/titles.slice';
+import { TitlesSlice } from './titles/titles.slice';
 
 export const store = configureStore({
   reducer: {
-    [TitleSlice.name]: TitleSlice.reducer
+    [TitlesSlice.name]: TitlesSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().prepend(listenerMiddleware.middleware),

@@ -9,8 +9,12 @@
     .posterImg {
       width: 100%;
       height: 100%;
-      min-height: 225px;
+      min-height: 500px;
       border-radius: 20px;
+      transition: 1s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
     .ratingWrap {
       position: absolute;
@@ -31,6 +35,7 @@
     }
   }
   .name {
+    text-align: center;
     margin-bottom: 10px;
     > a {
       text-decoration: none;
@@ -38,6 +43,7 @@
     }
   }
   .date {
+    text-align: center;
     color: var(--pixema-light-color);
     cursor: default;
   }
@@ -57,4 +63,48 @@
   display: flex;
   justify-content: center;
   gap: 4px;
+}
+
+.mainTitleWrap {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  border-radius: 60px;
+  position: relative;
+  cursor: pointer;
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+    opacity: 0.6;
+  }
+  .mainTitleContent {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    > p {
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      > h3 {
+        margin: 0;
+        font-size: 70px;
+        color: var(--pixema-yellow-color);
+        cursor: default;
+        > svg {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      > p {
+        font-size: 30px;
+        color: var(--pixema-white-color);
+        cursor: default;
+      }
+    }
+  }
 }
