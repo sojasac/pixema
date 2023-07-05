@@ -17,7 +17,7 @@ const routerSchema = createBrowserRouter([
         Component: HomePage
       },
       {
-        path: 'titles/:id',
+        path: 'movie/:id',
         Component: TitlePage
       }
     ]

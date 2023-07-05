@@ -61,7 +61,8 @@
       &:not(:last-child) {
         margin-bottom: 30px;
       }
-      .mainInfoRow {
+      .mainInfoRow,
+      .mainInfoRow span {
         color: var(--pixema-white-color);
       }
     }

@@ -9,7 +9,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_API_URL,
     prepareHeaders: (headers) => {
-      headers.set('Authorization', `Bearer ${secondaryToken}`);
+      headers.set('X-API-KEY', `${secondaryToken}`);
     }
   }),
   endpoints: () => ({})
