@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { Title } from '~/shared/ui/Titles/Title';
+import { Title } from '~/features/Titles/Title/Title';
 import { useGetTitleQuery } from '~/store/api/titles/titles.api';
 
 export const TitlePage = () => {
@@ -15,11 +15,11 @@ export const TitlePage = () => {
   if (title) {
     return (
       <Title
-        title={title.title}
+        title={title}
         apperance={
-          +title.title.rating > 7
+          title.rating.kp > 7
             ? 'highRating'
-            : +title.title.rating < 7.5 && +title.title.rating > 4.9
+            : title.rating.kp < 7.5 && title.rating.kp > 4.9
             ? 'middleRating'
             : 'lowRating'
         }

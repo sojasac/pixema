@@ -1,50 +1,24 @@
 import classNames from 'classnames';
-import { format } from 'date-fns';
 
 import { ReactComponent as FavoritesIcon } from '~/assets/svg/favorites.svg';
 import { ReactComponent as SharedIcon } from '~/assets/svg/Share.svg';
-import { type TitleEntity } from '~/store/titles/titles.types';
+import { Button } from '~/shared/ui/button/Button';
+import { type MovieByIdResponse } from '~/store/api/titles/titles.types';
 
 import TitleStyles from './Title.module.scss';
-import { type RatingApperances } from './Titles.types';
-import { Button } from '../button/Button';
+import { RecomendTitles } from './TitleComponents/RecomendTitles';
+import { TitleInfoTable } from './TitleComponents/TableInfo';
+import { type RatingApperances } from '../Titles/Titles.types';
 
-export const TitleInfoTable = ({ title }: { title: TitleEntity }) => {
-  return (
-    <table>
-      <tbody>
-        <tr>
-          <td>Year</td>
-          <td className={TitleStyles.mainInfoRow}>{title.year}</td>
-        </tr>
-        <tr>
-          <td>ReLeased</td>
-          <td className={TitleStyles.mainInfoRow}>
-            {format(new Date(title.release_date), 'd MMMM yyyy')}
-          </td>
-        </tr>
-        {title.revenue && (
-          <tr>
-            <td>BoxOffice</td>
-            <td className={TitleStyles.mainInfoRow}>{title.revenue}</td>
-          </tr>
-        )}
-        {title.country && (
-          <tr>
-            <td>Country</td>
-            <td className={TitleStyles.mainInfoRow}>{title.country}</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
-  );
+const getFirstUpperLetter = (anyString: string) => {
+  return anyString.slice(0, 1).toUpperCase() + anyString.slice(1);
 };
 
 export const Title = ({
   title,
   apperance
 }: {
-  title: TitleEntity;
+  title: MovieByIdResponse;
   apperance: RatingApperances;
 }) => {
   return (
@@ -53,7 +27,7 @@ export const Title = ({
         <div className={TitleStyles.posterWrap}>
           <img
             className={TitleStyles.posterImg}
-            src={title.poster}
+            src={title.poster.url}
             alt="Poster"
           />
         </div>
@@ -73,20 +47,20 @@ export const Title = ({
           {title.genres.map((genre, id) => {
             if (id === title.genres.length - 1) {
               return (
-                <span key={genre.id}>
+                <span key={id}>
                   {genre.name[0].toUpperCase() + genre.name.slice(1)}
                 </span>
               );
             }
-            return (
-              <span key={genre.id}>
-                {genre.name[0].toUpperCase() + genre.name.slice(1)}
-                {', '}
-              </span>
+            return id === title.genres.length - 1 ? (
+              <span key={id}>{getFirstUpperLetter(genre.name)}</span>
+            ) : (
+              <span key={id}>{getFirstUpperLetter(genre.name)}, </span>
             );
           })}
         </p>
         <h2>{title.name}</h2>
+        {title.alternativeName && <h2>{title.alternativeName}</h2>}
         <div className={TitleStyles.ratingWrap}>
           <div
             className={classNames({
@@ -94,18 +68,14 @@ export const Title = ({
               [TitleStyles[apperance]]: true
             })}
           >
-            {title.rating}
+            {title.rating.kp.toFixed(1)}
           </div>
           <div className={TitleStyles.ratingItem}>
             <span>IMDB </span>
-            {title.rating}
+            {title.rating.imdb}
           </div>
-          {title.runtime ? (
-            <div className={TitleStyles.ratingItem}>{title.runtime} min</div>
-          ) : (
-            <div className={TitleStyles.ratingItem}>120 min</div>
-          )}
-          {title.adult && (
+          <div className={TitleStyles.ratingItem}>{title.movieLength} min</div>
+          {title.ageRating >= 18 && (
             <div
               className={TitleStyles.ratingItem}
               style={{ backgroundColor: '#ff5154' }}
@@ -116,6 +86,7 @@ export const Title = ({
         </div>
         <div className={TitleStyles.description}>{title.description}</div>
         <TitleInfoTable title={title} />
+        <RecomendTitles title={title} />
       </div>
     </div>
   );

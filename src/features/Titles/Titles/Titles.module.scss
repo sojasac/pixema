@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  .ratingWrap {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    min-width: 25px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-align: center;
+    color: var(--pixema-white-color);
+    cursor: default;
+  }
+  .favoritesWrap {
+    background-color: var(--pixema-secondary-color);
+    > svg {
+      fill: var(--pixema-primary-color);
+    }
+  }
+}
+.date {
+  text-align: center;
+  color: var(--pixema-light-color);
+  cursor: default;
+}
+
+.highRating {
+  background-color: var(--pixema-green-color);
+}
+.middleRating {
+  background-color: var(--pixema-yellow-color);
+}
+.lowRating {
+  background-color: var(--pixema-error-color);
+}
+.trendsRatingWrap {
+  background-color: var(--pixema-primary-color);
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}

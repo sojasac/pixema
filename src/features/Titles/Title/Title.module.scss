@@ -53,17 +53,4 @@
     color: var(--pixema-white-color);
     margin-bottom: 50px;
   }
-  table {
-    width: 50%;
-    tr {
-      display: flex;
-      justify-content: space-between;
-      &:not(:last-child) {
-        margin-bottom: 30px;
-      }
-      .mainInfoRow {
-        color: var(--pixema-white-color);
-      }
-    }
-  }
 }
