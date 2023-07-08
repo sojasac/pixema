@@ -2,39 +2,30 @@ import classNames from 'classnames';
 
 import { ReactComponent as FavoritesSvg } from '~/assets/svg/favorites.svg';
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
+import { type MovieByIdResponse } from '~/store/api/titles/titles.types';
 
-import TitleStyle from './TitleInRow.module.scss';
+import TitleStyle from './Titles.module.scss';
 import { type RatingApperances } from './Titles.types';
+import { TitleInRow } from '../Title/TitleComponents/TitleInRow';
 
-export const TitleInRow = ({
-  rating,
-  poster,
-  name,
+export const Titles = ({
+  title,
   apperance,
-  releaseDate,
   isFavorites,
   isTrends
 }: {
-  rating: string;
-  poster: string;
+  title: MovieByIdResponse;
   apperance: RatingApperances;
-  name: string;
-  releaseDate: string;
   isFavorites?: boolean;
   isTrends?: boolean;
 }) => {
-  const date = new Date(releaseDate).toLocaleString('en', {
+  const date = new Date(title.premiere.world).toLocaleString('en', {
     month: 'long',
     year: 'numeric'
   });
   return (
     <div className={TitleStyle.container}>
       <div className={TitleStyle.posterWrap}>
-        <img
-          src={poster}
-          alt="Title_poster"
-          className={TitleStyle.posterImg}
-        />
         <div
           className={classNames({
             [TitleStyle.ratingWrap]: true,
@@ -47,7 +38,7 @@ export const TitleInRow = ({
               <TrendsSvg style={{ fill: 'white' }} />
             </div>
           )}
-          <p>{rating}</p>
+          <p>{title.rating.kp}</p>
         </div>
         {isFavorites && (
           <div className={TitleStyle.favoritesWrap}>
@@ -55,10 +46,12 @@ export const TitleInRow = ({
           </div>
         )}
       </div>
+      <TitleInRow
+        id={title.id}
+        name={title.name}
+        poster={title.poster.url}
+      />
       <div>
-        <div className={TitleStyle.name}>
-          <a href="#">{name}</a>
-        </div>
         <div className={TitleStyle.date}>{date}</div>
       </div>
     </div>
