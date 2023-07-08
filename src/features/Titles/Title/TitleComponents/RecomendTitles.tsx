@@ -1,3 +1,4 @@
+import { SwiperComponent } from '~/shared/ui/swiper/Swiper';
 import { type MovieByIdResponse } from '~/store/api/titles/titles.types';
 
 import RecomendStyles from './TitleComponents.module.scss';
@@ -6,10 +7,12 @@ import { TitleInRow } from './TitleInRow';
 export const RecomendTitles = ({ title }: { title: MovieByIdResponse }) => {
   const { similarMovies: recomendations } = title;
   return (
-    <div className={RecomendStyles.recomendWrap}>
-      <h2>Recommendations</h2>
-      <div className={RecomendStyles.recomendContent}>
-        {recomendations.map((recomnation) => (
+    <div
+      className={RecomendStyles.recomendWrap}
+      style={{ overflow: 'hidden', maxWidth: '100%' }}
+    >
+      <SwiperComponent
+        slides={recomendations.map((recomnation) => (
           <TitleInRow
             key={recomnation.id}
             id={recomnation.id}
@@ -17,7 +20,8 @@ export const RecomendTitles = ({ title }: { title: MovieByIdResponse }) => {
             poster={recomnation.poster.url}
           />
         ))}
-      </div>
+        name="Recomendations"
+      />
     </div>
   );
 };

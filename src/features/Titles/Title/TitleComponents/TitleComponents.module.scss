@@ -54,7 +54,8 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  align-items: stretch;
+  min-height: 350px;
   .posterWrap {
     position: relative;
     border-radius: 20px;
