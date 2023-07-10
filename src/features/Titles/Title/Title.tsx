@@ -8,6 +8,7 @@ import { type MovieByIdResponse } from '~/store/api/titles/titles.types';
 import TitleStyles from './Title.module.scss';
 import { RecomendTitles } from './TitleComponents/RecomendTitles';
 import { TitleInfoTable } from './TitleComponents/TableInfo';
+import { TitleVideo } from './TitleComponents/TitleVideo';
 import { type RatingApperances } from '../Titles/Titles.types';
 
 const getFirstUpperLetter = (anyString: string) => {
@@ -21,6 +22,7 @@ export const Title = ({
   title: MovieByIdResponse;
   apperance: RatingApperances;
 }) => {
+  const [trailer] = title.videos.trailers;
   return (
     <div className={TitleStyles.container}>
       <div className={TitleStyles.posterContent}>
@@ -40,6 +42,10 @@ export const Title = ({
             icon={<SharedIcon />}
             apperance="secondary"
           />
+        </div>
+        <div>
+          <h2>Trailer</h2>
+          <TitleVideo url={trailer.url} />
         </div>
       </div>
       <div>

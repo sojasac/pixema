@@ -53,7 +53,9 @@ export const TitleInfoTable = ({ title }: { title: MovieByIdResponse }) => {
                         >
                           {actor.name}
                         </NavLink>
-                        {id === actors.length - 1 ? null : (
+                        {id === actors.length - 1 ? (
+                          <span>&nbsp;</span>
+                        ) : (
                           <span>, &nbsp;</span>
                         )}
                       </span>
@@ -80,7 +82,9 @@ export const TitleInfoTable = ({ title }: { title: MovieByIdResponse }) => {
                         >
                           {director.name}
                         </NavLink>
-                        {id === directors.length - 1 ? null : (
+                        {id === directors.length - 1 ? (
+                          <span>&nbsp;</span>
+                        ) : (
                           <span>, &nbsp;</span>
                         )}
                       </span>
