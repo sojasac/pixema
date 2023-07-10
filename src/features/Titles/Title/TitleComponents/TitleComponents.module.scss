@@ -64,9 +64,6 @@ table {
       height: 100%;
       border-radius: 20px;
       transition: 1s;
-      &:hover {
-        transform: scale(1.1);
-      }
     }
   }
 }
@@ -92,9 +89,4 @@ table {
     grid-template-columns: repeat(5, 1fr);
     gap: 40px;
   }
-}
-
-.videoWrap {
-  width: 100%;
-  max-height: 100px;
 }

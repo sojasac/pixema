@@ -14,17 +14,6 @@ export const TitlePage = () => {
     return <div>Error: {JSON.stringify(error)}</div>;
   }
   if (title) {
-    return (
-      <Title
-        title={title}
-        apperance={
-          title.rating.kp > 7
-            ? 'highRating'
-            : title.rating.kp < 7.5 && title.rating.kp > 4.9
-            ? 'middleRating'
-            : 'lowRating'
-        }
-      />
-    );
+    return <Title title={title} />;
   }
 };

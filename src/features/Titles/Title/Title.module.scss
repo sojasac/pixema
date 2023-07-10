@@ -6,19 +6,22 @@
   h2 {
     color: var(--pixema-white-color);
   }
-  .posterWrap {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    .posterImg {
-      width: 100%;
-      height: 100%;
-      min-height: 300px;
+  .posterContent {
+    max-height: 100%;
+    .posterWrap {
+      position: relative;
       border-radius: 20px;
-      transition: 1s;
-      object-fit: contain;
+      overflow: hidden;
+      .posterImg {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        border-radius: 20px;
+        transition: 1s;
+        object-fit: contain;
+      }
+      margin-bottom: 10px;
     }
-    margin-bottom: 10px;
   }
   .actionsWrap {
     display: flex;

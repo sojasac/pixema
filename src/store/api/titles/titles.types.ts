@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention -- Api constants*/
-export interface MovieByIdResponse {
+export interface MovieResponse {
   id: number;
   name: string;
   alternativeName: string;
@@ -15,7 +15,6 @@ export interface MovieByIdResponse {
     await: number;
   };
   movieLength: number;
-  ratingMpaa: string;
   ageRating: number;
   poster: {
     url: string;
@@ -78,24 +77,6 @@ export interface MovieByIdResponse {
       };
     }
   ];
-  sequelsAndPrequels: [
-    {
-      id: number;
-      name: string;
-      alternativeName: string;
-      type: string;
-      poster: {
-        url: string;
-        previewUrl: string;
-      };
-    }
-  ];
-  top10: number;
-  top250: number;
-  ticketsOnSale: true;
-  totalSeriesLength: number;
-  seriesLength: number;
-  isSeries: true;
   facts: [
     {
       value: string;
@@ -110,5 +91,14 @@ export interface MovieByIdResponse {
       previewUrl: string;
     }
   ];
+  type: string;
+}
+
+export interface TitlesResponse {
+  docs: MovieResponse[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
 }
 /* eslint-enable @typescript-eslint/naming-convention -- Api constants*/

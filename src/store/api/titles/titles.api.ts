@@ -1,17 +1,31 @@
-import { type MovieByIdResponse } from './titles.types';
+import { type TitlesResponse, type MovieResponse } from './titles.types';
 import { baseApi } from '..';
+export interface Parameters {
+  page?: number;
+  limit: number;
+  sortField?: ['year' | 'rating.kp'];
+  releaseYears?: {
+    start: number;
+    end: number;
+  };
+  genres?: {
+    name: string[];
+  };
+}
 
 export const titlesApi = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
-    getTitle: build.query<MovieByIdResponse, { id: string }>({
-      providesTags: (result) =>
-        result
-          ? [{ type: 'POST', id: result.id }]
-          : [{ type: 'POST', id: 'ENTITY' }],
+    getTitle: build.query<MovieResponse, { id: string }>({
       query: ({ id }) => ({ url: `movie/${id}` })
+    }),
+    getTitles: build.query<TitlesResponse, Parameters>({
+      query: (parameters) => ({
+        url: `movie`,
+        params: parameters
+      })
     })
   })
 });
 
-export const { useGetTitleQuery } = titlesApi;
+export const { useGetTitleQuery, useGetTitlesQuery } = titlesApi;
