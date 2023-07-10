@@ -1,27 +1,21 @@
-import { useNavigate } from 'react-router-dom';
+import { Loader } from '~/shared/ui/loader/Loader';
+import { useGetTitlesQuery } from '~/store/api/titles/titles.api';
 
-import { ReactComponent as RateCup } from '~/assets/svg/cup.svg';
-import { type MovieResponse } from '~/store/api/titles/titles.types';
-
-import TitleStyle from './MainTitle.module.scss';
-export const MainTitle = ({ title }: { title: MovieResponse }) => {
-  const navigate = useNavigate();
-  return (
-    <div className={TitleStyle.mainTitleWrap}>
-      <img
-        src={title.poster.url}
-        alt="MainPoster"
-        onClick={() => navigate(`/titles/${title.id}`)}
-      />
-      <div className={TitleStyle.mainTitleContent}>
-        <p>
-          <h3 style={{ color: '#fff' }}>Title : {title.name}</h3>
-          <h3>
-            Rate: <RateCup /> {title.rating.kp}
-          </h3>
-          <p>{title.description}</p>
-        </p>
-      </div>
-    </div>
-  );
+import { Titles } from '../Titles/Titles';
+export const MainTitle = () => {
+  const date = new Date(2022, 6, 10);
+  const {
+    data: titles,
+    status,
+    error
+  } = useGetTitlesQuery({ 'premiere.world': date.toLocaleDateString() });
+  if (status === 'pending') {
+    return <Loader />;
+  }
+  if (status === 'rejected') {
+    return <div>Error: {JSON.stringify(error)}</div>;
+  }
+  if (titles) {
+    return <Titles titlesResponse={titles} />;
+  }
 };

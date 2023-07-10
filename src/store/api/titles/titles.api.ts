@@ -2,15 +2,21 @@ import { type TitlesResponse, type MovieResponse } from './titles.types';
 import { baseApi } from '..';
 export interface Parameters {
   page?: number;
-  limit: number;
-  sortField?: ['year' | 'rating.kp'];
+  limit?: number;
+  sortField?: 'year' | 'rating.kp';
   releaseYears?: {
     start: number;
     end: number;
   };
-  genres?: {
-    name: string[];
-  };
+  'genres.name'?: string[];
+  type?:
+    | 'movie'
+    | 'tv-series'
+    | 'cartoon'
+    | 'anime'
+    | 'animated-series'
+    | 'tv-show';
+  'premiere.world'?: string;
 }
 
 export const titlesApi = baseApi.injectEndpoints({
