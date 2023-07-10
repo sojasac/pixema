@@ -3,14 +3,17 @@ import { baseApi } from '..';
 export interface Parameters {
   page?: number;
   limit: number;
-  sortField?: ['year' | 'rating.kp'];
-  releaseYears?: {
-    start: number;
-    end: number;
-  };
-  genres?: {
-    name: string[];
-  };
+  sortField?: 'year' | 'rating.kp';
+  'releaseYears.start'?: number;
+  'releaseYears.end'?: number;
+  'genres.name'?: string[];
+  type?:
+    | 'anime'
+    | 'cartoon'
+    | 'movie'
+    | 'tv-series'
+    | 'animated-series'
+    | 'tv-show';
 }
 
 export const titlesApi = baseApi.injectEndpoints({
@@ -28,4 +31,5 @@ export const titlesApi = baseApi.injectEndpoints({
   })
 });
 
-export const { useGetTitleQuery, useGetTitlesQuery } = titlesApi;
+export const { useGetTitleQuery, useGetTitlesQuery, useLazyGetTitlesQuery } =
+  titlesApi;

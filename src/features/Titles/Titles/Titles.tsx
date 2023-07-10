@@ -60,8 +60,8 @@ export const Titles = ({
               </div>
               <TitleInRow
                 id={title.id}
-                name={title.name}
-                poster={title.poster.url}
+                name={title.name || title.alternativeName}
+                poster={title.poster?.url || title.poster?.previewUrl}
               ></TitleInRow>
             </div>
           </div>

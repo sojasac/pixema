@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import noposter from '~/assets/layouts/noposter.jpg';
 import { ReactComponent as FavoritesIcon } from '~/assets/svg/favorites.svg';
 import { ReactComponent as SharedIcon } from '~/assets/svg/Share.svg';
 import { Button } from '~/shared/ui/button/Button';
@@ -19,13 +20,11 @@ export const Title = ({ title }: { title: MovieResponse }) => {
     <div className={TitleStyles.container}>
       <div className={TitleStyles.posterContent}>
         <div className={TitleStyles.posterWrap}>
-          {title.poster.url && (
-            <img
-              className={TitleStyles.posterImg}
-              src={title.poster.url}
-              alt="Poster"
-            />
-          )}
+          <img
+            className={TitleStyles.posterImg}
+            src={title.poster?.url || noposter}
+            alt="Poster"
+          />
         </div>
         <div className={TitleStyles.actionsWrap}>
           <Button
@@ -79,7 +78,7 @@ export const Title = ({ title }: { title: MovieResponse }) => {
           ) : null}
           {title.rating.imdb > 0 && (
             <div className={TitleStyles.ratingItem}>
-              <span>IMDB {title.rating.imdb}</span>
+              <span>IMDB</span> {title.rating.imdb}
             </div>
           )}
           {title.movieLength && (

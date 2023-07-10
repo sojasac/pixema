@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { thirdToken } from './interceptors/axios.constants';
+import { secondaryToken } from './interceptors/axios.constants';
 import { BASE_API_URL } from '../store.constants';
 
 export const baseApi = createApi({
@@ -9,7 +9,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_API_URL,
     prepareHeaders: (headers) => {
-      headers.set('X-API-KEY', `${thirdToken}`);
+      headers.set('X-API-KEY', `${secondaryToken}`);
     }
   }),
   endpoints: () => ({})

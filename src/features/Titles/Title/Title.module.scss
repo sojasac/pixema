@@ -33,15 +33,18 @@
     gap: 20px;
     margin-bottom: 30px;
     .ratingItem {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-width: 25px;
       padding: 5px 8px;
       border-radius: 6px;
-      text-align: center;
       background-color: var(--pixema-secondary-color);
       color: var(--pixema-white-color);
       cursor: default;
       > span {
         font-weight: 700;
+        margin-right: 5px;
       }
     }
     .highRating {

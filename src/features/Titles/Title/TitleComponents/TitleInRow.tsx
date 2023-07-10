@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import noposter from '~/assets/layouts/noposter.jpg';
+
 import TableInRowStyles from './TitleComponents.module.scss';
 
 export const TitleInRow = ({
@@ -9,13 +11,13 @@ export const TitleInRow = ({
 }: {
   id: number;
   name: string;
-  poster: string;
+  poster?: string;
 }) => {
   return (
     <div className={TableInRowStyles.titleCard}>
       <div className={TableInRowStyles.posterWrap}>
         <img
-          src={poster}
+          src={poster || noposter}
           alt="Title_poster"
           className={TableInRowStyles.posterImg}
         />
