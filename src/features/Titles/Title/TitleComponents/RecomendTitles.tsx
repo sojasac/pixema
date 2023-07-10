@@ -1,10 +1,10 @@
 import { SwiperComponent } from '~/shared/ui/swiper/Swiper';
-import { type MovieByIdResponse } from '~/store/api/titles/titles.types';
+import { type MovieResponse } from '~/store/api/titles/titles.types';
 
 import RecomendStyles from './TitleComponents.module.scss';
 import { TitleInRow } from './TitleInRow';
 
-export const RecomendTitles = ({ title }: { title: MovieByIdResponse }) => {
+export const RecomendTitles = ({ title }: { title: MovieResponse }) => {
   const { similarMovies: recomendations } = title;
   return (
     <div

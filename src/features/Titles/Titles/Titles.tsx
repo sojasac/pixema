@@ -2,58 +2,71 @@ import classNames from 'classnames';
 
 import { ReactComponent as FavoritesSvg } from '~/assets/svg/favorites.svg';
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
-import { type MovieByIdResponse } from '~/store/api/titles/titles.types';
+import { type TitlesResponse } from '~/store/api/titles/titles.types';
 
 import TitleStyle from './Titles.module.scss';
-import { type RatingApperances } from './Titles.types';
+import { getFirstUpperLetter } from '../Title/Title';
 import { TitleInRow } from '../Title/TitleComponents/TitleInRow';
 
 export const Titles = ({
-  title,
-  apperance,
+  titlesResponse,
   isFavorites,
   isTrends
 }: {
-  title: MovieByIdResponse;
-  apperance: RatingApperances;
+  titlesResponse: TitlesResponse;
   isFavorites?: boolean;
   isTrends?: boolean;
 }) => {
-  const date = new Date(title.premiere.world).toLocaleString('en', {
-    month: 'long',
-    year: 'numeric'
-  });
+  const { docs: titles } = titlesResponse;
   return (
-    <div className={TitleStyle.container}>
-      <div className={TitleStyle.posterWrap}>
-        <div
-          className={classNames({
-            [TitleStyle.ratingWrap]: true,
-            [TitleStyle[apperance]]: true,
-            [TitleStyle.trendsRatingWrap]: isTrends
-          })}
-        >
-          {isTrends && (
-            <div>
-              <TrendsSvg style={{ fill: 'white' }} />
+    <div className={TitleStyle.wrapper}>
+      {titles.map((title) => {
+        return (
+          <div
+            className={TitleStyle.container}
+            key={title.id}
+          >
+            <div className={TitleStyle.posterWrap}>
+              <div
+                className={classNames({
+                  [TitleStyle.ratingWrap]: true,
+                  [TitleStyle.lowRating]: title.rating.kp < 5,
+                  [TitleStyle.middleRating]:
+                    title.rating.kp < 7.5 && title.rating.kp >= 5,
+                  [TitleStyle.highRating]: title.rating.kp >= 7.5,
+                  [TitleStyle.trendsRatingWrap]: isTrends
+                })}
+              >
+                {isTrends && (
+                  <div>
+                    <TrendsSvg style={{ fill: 'white' }} />
+                  </div>
+                )}
+                <span>{title.rating.kp.toFixed(1)}</span>
+              </div>
+              {isFavorites && (
+                <div className={TitleStyle.favoritesWrap}>
+                  <FavoritesSvg />
+                </div>
+              )}
             </div>
-          )}
-          <p>{title.rating.kp}</p>
-        </div>
-        {isFavorites && (
-          <div className={TitleStyle.favoritesWrap}>
-            <FavoritesSvg />
+            <div className={TitleStyle.titleContainer}>
+              <div className={TitleStyle.cloud}>
+                {title.genres
+                  .filter((_, index) => index < 3)
+                  .map((genre, index) => (
+                    <span key={index}>{getFirstUpperLetter(genre.name)}</span>
+                  ))}
+              </div>
+              <TitleInRow
+                id={title.id}
+                name={title.name}
+                poster={title.poster.url}
+              ></TitleInRow>
+            </div>
           </div>
-        )}
-      </div>
-      <TitleInRow
-        id={title.id}
-        name={title.name}
-        poster={title.poster.url}
-      />
-      <div>
-        <div className={TitleStyle.date}>{date}</div>
-      </div>
+        );
+      })}
     </div>
   );
 };

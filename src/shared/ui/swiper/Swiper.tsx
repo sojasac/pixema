@@ -69,12 +69,7 @@ export const SwiperComponent = ({
         </div>
       </div>
       {slides.map((slide, id) => (
-        <SwiperSlide
-          key={id}
-          style={{ minHeight: '400px' }}
-        >
-          {slide}
-        </SwiperSlide>
+        <SwiperSlide key={id}>{slide}</SwiperSlide>
       ))}
     </Swiper>
   );
