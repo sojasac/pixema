@@ -15,10 +15,9 @@ export const TitleInfoTable = ({ title }: { title: MovieResponse }) => {
   const directors = title.persons.filter(
     (person) => person.enProfession === 'director' && person.name
   );
-
   const tableSchema = Object.entries({
     Year: title.year,
-    Released: title.premiere.world
+    Released: title.premiere?.world
       ? format(new Date(title.premiere.world), 'do MMMM yyyy')
       : null,
     BoxOffice: title.fees.world.value
@@ -38,9 +37,9 @@ export const TitleInfoTable = ({ title }: { title: MovieResponse }) => {
               <td className={TableStyles.tableKeys}>{item[0]}</td>
               <td className={TableStyles.tableValues}>
                 {item[0] === 'Actors' ? (
-                  <p>
+                  <div>
                     {actors.map((actor, id) => (
-                      <p
+                      <div
                         key={actor.id}
                         className={TableStyles.personsContent}
                       >
@@ -63,13 +62,13 @@ export const TitleInfoTable = ({ title }: { title: MovieResponse }) => {
                             <span>, &nbsp;</span>
                           )}
                         </span>
-                      </p>
+                      </div>
                     ))}
-                  </p>
+                  </div>
                 ) : item[0] === 'Directors' ? (
-                  <p>
+                  <div>
                     {directors.map((director, id) => (
-                      <p
+                      <div
                         key={id}
                         className={TableStyles.personsContent}
                       >
@@ -92,9 +91,9 @@ export const TitleInfoTable = ({ title }: { title: MovieResponse }) => {
                             <span>, &nbsp;</span>
                           )}
                         </span>
-                      </p>
+                      </div>
                     ))}
-                  </p>
+                  </div>
                 ) : item[1] === undefined ? (
                   ''
                 ) : (
