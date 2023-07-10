@@ -55,10 +55,10 @@ table {
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  min-height: 350px;
   .posterWrap {
     position: relative;
     border-radius: 20px;
+    height: 200px;
     .posterImg {
       width: 100%;
       height: 100%;
@@ -71,6 +71,7 @@ table {
   }
 }
 .name {
+  margin-top: 20px;
   text-align: center;
   > a {
     text-decoration: none;
