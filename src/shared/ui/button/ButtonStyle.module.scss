@@ -39,6 +39,6 @@
 .secondary {
   background-color: var(--pixema-secondary-color);
   &:hover {
-    color: var(--pixema-light-color);
+    background-color: var(--pixema-primary-color);
   }
 }
