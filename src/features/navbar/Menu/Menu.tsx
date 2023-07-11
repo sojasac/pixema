@@ -4,7 +4,13 @@ import { NavLink } from 'react-router-dom';
 import MenuStyles from './Menu.module.scss';
 import { MenuSchema } from './Menu.schema';
 
-export const Menu = ({ isOpen }: { isOpen: boolean }) => {
+export const Menu = ({
+  isOpen,
+  toogle
+}: {
+  isOpen: boolean;
+  toogle: () => void;
+}) => {
   return (
     <div
       className={classNames({
@@ -15,7 +21,12 @@ export const Menu = ({ isOpen }: { isOpen: boolean }) => {
       {MenuSchema.map((link) => (
         <div key={link.path}>
           {link.icon}
-          <NavLink to={link.path}>{link.title}</NavLink>
+          <NavLink
+            to={link.path}
+            onClick={toogle}
+          >
+            {link.title}
+          </NavLink>
         </div>
       ))}
     </div>

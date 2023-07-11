@@ -4,8 +4,8 @@ import { SignIn } from '~/features/Forms/SignIn/SignInForm';
 import { SignUp } from '~/features/Forms/SignUp/SignUpForm';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
-import { HomePage } from '~/pages/HomePage/HomePage';
 import { TitlePage } from '~/pages/TitlePage/TitlePage';
+import { TrendsPage } from '~/pages/TrendsPage/Trends';
 
 const routerSchema = createBrowserRouter([
   {
@@ -14,7 +14,11 @@ const routerSchema = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: HomePage
+        Component: TrendsPage
+      },
+      {
+        path: '/trends',
+        Component: TrendsPage
       },
       {
         path: 'movie/:id',

@@ -6,7 +6,7 @@ import {
   useLazyGetTitlesQuery
 } from '~/store/api/titles/titles.api';
 
-export const HomePage = () => {
+export const TrendsPage = () => {
   const { data: titles } = useGetTitlesQuery({
     limit: 12,
     type: 'movie',
@@ -16,7 +16,7 @@ export const HomePage = () => {
   if (result.status === 'uninitialized' && titles) {
     return (
       <div>
-        <h2>Most popular</h2>
+        <h2>Trends</h2>
         <div
           style={{
             display: 'flex',
@@ -81,7 +81,10 @@ export const HomePage = () => {
             Animated-series
           </Button>
         </div>
-        <Titles titlesResponse={titles} />
+        <Titles
+          titlesResponse={titles}
+          isTrends
+        />
       </div>
     );
   } else {
@@ -95,8 +98,15 @@ export const HomePage = () => {
     if (data) {
       return (
         <div>
-          <h2>Most popular</h2>
-          <div style={{ display: 'flex', gap: '30px', marginBottom: '30px' }}>
+          <h2>Trends</h2>
+          <div
+            style={{
+              display: 'flex',
+              gap: '30px',
+              marginBottom: '30px',
+              justifyContent: 'center'
+            }}
+          >
             <Button
               onClick={() =>
                 void trigger(
@@ -165,7 +175,10 @@ export const HomePage = () => {
               Animated-series
             </Button>
           </div>
-          <Titles titlesResponse={data} />
+          <Titles
+            titlesResponse={data}
+            isTrends
+          />
         </div>
       );
     }
