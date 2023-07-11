@@ -4,16 +4,16 @@ import { Button } from '~/shared/ui/button/Button';
 
 export const MenuButton = ({
   isOpen,
-  toogle
+  toggle
 }: {
   isOpen: boolean;
-  toogle: () => void;
+  toggle: () => void;
 }) => {
   return (
     <Button
       apperance="primary"
       icon={isOpen ? <CloseMenuButton /> : <MenuButton_ />}
-      onClick={toogle}
+      onClick={toggle}
       style={{ width: '56px' }}
     />
   );

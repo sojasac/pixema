@@ -1,11 +1,17 @@
+import { useEffect } from 'react';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { SignIn } from '~/features/Forms/SignIn/SignInForm';
-import { SignUp } from '~/features/Forms/SignUp/SignUpForm';
+import { ConfirmEmail } from '~/features/Forms/ConfirmEmail/ConfirmEmail';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
+import { SignInPage } from '~/pages/SignInPage';
+import { SignUpPage } from '~/pages/SignUpPage';
 import { TitlePage } from '~/pages/TitlePage/TitlePage';
 import { TrendsPage } from '~/pages/TrendsPage/Trends';
+import { useAppDispatch, useAppSelector } from '~/store/store.type';
+import { fetchUser } from '~/store/user/user.api';
+import { selectTokens } from '~/store/user/user.selectors';
 
 const routerSchema = createBrowserRouter([
   {
@@ -31,11 +37,15 @@ const routerSchema = createBrowserRouter([
     children: [
       {
         path: '/auth/sign-in',
-        Component: SignIn
+        Component: SignInPage
       },
       {
         path: '/auth/sign-up',
-        Component: SignUp
+        Component: SignUpPage
+      },
+      {
+        path: 'activate/:uid/:token',
+        Component: ConfirmEmail
       }
     ]
   },
@@ -45,4 +55,17 @@ const routerSchema = createBrowserRouter([
   }
 ]);
 
-export const AppRouter = () => <RouterProvider router={routerSchema} />;
+export const AppRouter = () => {
+  const dispatch = useAppDispatch();
+  const tokens = useAppSelector(selectTokens);
+  useEffect(() => {
+    if (tokens) {
+      const promise = dispatch(fetchUser());
+      return () => {
+        promise.abort('cancelled');
+      };
+    }
+  }, [tokens, dispatch]);
+
+  return <RouterProvider router={routerSchema} />;
+};

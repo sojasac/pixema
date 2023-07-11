@@ -10,7 +10,7 @@
     flex: 1;
     align-items: center;
     width: 100%;
-    margin-bottom: 50px;
+    min-height: calc(100vh - 170px);
   }
 
   form {

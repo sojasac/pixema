@@ -6,10 +6,10 @@ import { MenuSchema } from './Menu.schema';
 
 export const Menu = ({
   isOpen,
-  toogle
+  toggle
 }: {
   isOpen: boolean;
-  toogle: () => void;
+  toggle: () => void;
 }) => {
   return (
     <div
@@ -23,7 +23,7 @@ export const Menu = ({
           {link.icon}
           <NavLink
             to={link.path}
-            onClick={toogle}
+            onClick={toggle}
           >
             {link.title}
           </NavLink>
