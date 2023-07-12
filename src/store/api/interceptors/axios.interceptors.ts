@@ -1,10 +1,13 @@
 import axiosCore, { type InternalAxiosRequestConfig } from 'axios';
 
-import { thirdToken } from './axios.constants';
+export const axiosAuth = axiosCore.create();
 
-export const axiosRequest = axiosCore.create();
+axiosAuth.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const accessToken = localStorage.getItem('@pixema/access-token');
+  if (!accessToken) {
+    throw new Error('Unauthorized');
+  }
+  config.headers.set('Authorization', `Bearer ${accessToken}`);
 
-axiosRequest.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  config.headers.set('Authorization', `Bearer ${thirdToken}`);
   return config;
 });

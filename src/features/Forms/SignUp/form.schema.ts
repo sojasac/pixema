@@ -4,7 +4,7 @@ export const formSchema: FormField[] = [
   {
     label: 'Name',
     placeholder: 'Enter name',
-    name: 'name',
+    name: 'username',
     required: true
   },
   {

@@ -5,12 +5,19 @@ import { NavLink } from 'react-router-dom';
 import FormStyles from '~/features/Forms/FormsStyles.module.scss';
 import { Button } from '~/shared/ui/button/Button';
 import { InputField } from '~/shared/ui/inputField/InputField';
+import { type CreateUserPayload } from '~/store/api/user/user.api';
 
 import { formSchema } from './form.schema';
 import { getDefaultFormValues, getFormErrors } from './form.utils';
 import { type FormState } from './forms.types';
 
-export const SignUp = () => {
+export const SignUp = ({
+  onCreateUser,
+  error
+}: {
+  onCreateUser: (user: CreateUserPayload) => void;
+  error?: string;
+}) => {
   const [formState, setFormState] = useState<FormState>(getDefaultFormValues);
   const [touchedFields, setTouchedFields] = useState<Set<string>>(
     () => new Set()
@@ -27,9 +34,14 @@ export const SignUp = () => {
   return (
     <form
       className={FormStyles.container}
-      onSubmit={(event) => event.preventDefault()}
+      onSubmit={(event) => {
+        event.preventDefault();
+        const { confirmPassword, ...user } = formState;
+        onCreateUser(user);
+      }}
     >
       <h2>Sign up</h2>
+      {error && <span className={FormStyles.error}>{error}</span>}
       {formSchema.map((field) => (
         <InputField
           {...field}

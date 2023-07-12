@@ -10,4 +10,9 @@
   > h2 {
     color: var(--pixema-white-color);
   }
+  .error {
+    display: flex;
+    flex-direction: column;
+    color: var(--pixema-error-color);
+  }
 }
