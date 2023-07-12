@@ -1,3 +1,4 @@
+import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
 import { Titles } from '~/features/Titles/Titles/Titles';
 import { Button } from '~/shared/ui/button/Button';
 import { Loader } from '~/shared/ui/loader/Loader';
@@ -5,6 +6,8 @@ import {
   useGetTitlesQuery,
   useLazyGetTitlesQuery
 } from '~/store/api/titles/titles.api';
+
+import TrendsStyles from './Trends.module.scss';
 
 export const TrendsPage = () => {
   const { data: titles } = useGetTitlesQuery({
@@ -16,15 +19,11 @@ export const TrendsPage = () => {
   if (result.status === 'uninitialized' && titles) {
     return (
       <div>
-        <h2>Trends</h2>
-        <div
-          style={{
-            display: 'flex',
-            gap: '30px',
-            marginBottom: '30px',
-            justifyContent: 'center'
-          }}
-        >
+        <div className={TrendsStyles.titleWrap}>
+          <TrendsSvg />
+          <h2>Trends</h2>
+        </div>
+        <div className={TrendsStyles.btnWrap}>
           <Button
             onClick={() =>
               void trigger(
@@ -98,15 +97,11 @@ export const TrendsPage = () => {
     if (data) {
       return (
         <div>
-          <h2>Trends</h2>
-          <div
-            style={{
-              display: 'flex',
-              gap: '30px',
-              marginBottom: '30px',
-              justifyContent: 'center'
-            }}
-          >
+          <div className={TrendsStyles.titleWrap}>
+            <TrendsSvg />
+            <h2>Trends</h2>
+          </div>
+          <div className={TrendsStyles.btnWrap}>
             <Button
               onClick={() =>
                 void trigger(

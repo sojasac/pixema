@@ -7,12 +7,6 @@ import { ReactComponent as VectorRight } from '~/assets/svg/vectorRight.svg';
 import { type User } from '~/entities/entities';
 import { Button } from '~/shared/ui/button/Button';
 
-function getUserInitials(user: User) {
-  const [firstname = '', lastname = ''] = user.username;
-
-  return `${firstname.slice(0, 1)}${lastname.slice(0, 1)}`;
-}
-
 import UserStyles from './UserPanelStyle.module.scss';
 
 export const UserPanel = ({
@@ -34,7 +28,7 @@ export const UserPanel = ({
   return (
     <div className={UserStyles.container}>
       <div className={UserStyles.userIconWrap}>
-        {user ? getUserInitials(user) : <UserIcon />}
+        {user ? user.username.slice(0, 1).toUpperCase() : <UserIcon />}
       </div>
       <div className={UserStyles.userMainWrap}>
         <h3>{user ? `${user.username}` : 'Sign In'}</h3>

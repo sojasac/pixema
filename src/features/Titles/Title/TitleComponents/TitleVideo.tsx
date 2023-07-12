@@ -7,7 +7,7 @@ export const TitleVideo = ({ url }: { url: string }) => {
       <ReactPlayer
         url={url}
         controls={true}
-        style={{ maxWidth: '100%' }}
+        style={{ maxWidth: '100%', maxHeight: '250px' }}
       />
       <p style={{ textAlign: 'center' }}>
         {`If the video doesn't play, click `}

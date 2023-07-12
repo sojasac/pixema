@@ -39,5 +39,14 @@ a {
 h2 {
   color: var(--pixema-white-color);
   margin: 0;
+  margin-bottom: 20px;
   padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+span {
+  cursor: default;
 }

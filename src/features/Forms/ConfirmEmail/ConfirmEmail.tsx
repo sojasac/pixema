@@ -6,7 +6,7 @@ import { Button } from '~/shared/ui/button/Button';
 import { InputField } from '~/shared/ui/inputField/InputField';
 import { Loader } from '~/shared/ui/loader/Loader';
 import {
-  type ActivateEmailPayload,
+  type ActivateEmail,
   useConfirmEmailMutation,
   useResendEmailMutation
 } from '~/store/api/user/user.api';
@@ -21,7 +21,7 @@ export const ConfirmEmail = () => {
   const navigate = useNavigate();
   const tokens = useParams<'uid' | 'token'>();
   useEffect(() => {
-    activateEmail(tokens as ActivateEmailPayload)
+    activateEmail(tokens as ActivateEmail)
       .then(() => isSuccess)
       .catch(() => isError);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- more flexible rule
@@ -43,7 +43,7 @@ export const ConfirmEmail = () => {
             onChange={({ target: { value } }) => setEmail(value)}
           />
           <Button
-            style={{ width: '100%', marginTop: '20px' }}
+            style={{ width: '100%' }}
             onClick={() => {
               resendEmail({ email })
                 .then(() => {
@@ -76,7 +76,7 @@ export const ConfirmEmail = () => {
         <div>
           <p>Email confirmed. Your registration is now completed</p>
           <Button
-            style={{ width: '100%', marginTop: '20px' }}
+            style={{ width: '100%' }}
             onClick={() => navigate('/auth/sign-in')}
           >
             Sign In

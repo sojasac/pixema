@@ -19,18 +19,11 @@ export interface CreateTokenPayload {
   email: string;
   password: string;
 }
-export interface ActivateEmailPayload {
+export interface ActivateEmail {
   uid: string;
   token: string;
 }
-export interface ActivateEmailResponse {
-  uid: string;
-  token: string;
-}
-export interface ResendEmailPayload {
-  email: string;
-}
-export interface ResendEmailResponse {
+export interface ResendEmail {
   email: string;
 }
 export const userApi = authApi.injectEndpoints({
@@ -43,14 +36,14 @@ export const userApi = authApi.injectEndpoints({
         body: user
       })
     }),
-    confirmEmail: build.mutation<ActivateEmailResponse, ActivateEmailPayload>({
+    confirmEmail: build.mutation<ActivateEmail, ActivateEmail>({
       query: (payload) => ({
         url: `${AUTH_API_URL}/auth/users/activation/`,
         method: 'POST',
         body: payload
       })
     }),
-    resendEmail: build.mutation<ResendEmailResponse, ResendEmailPayload>({
+    resendEmail: build.mutation<ResendEmail, ResendEmail>({
       query: (payload) => ({
         url: `${AUTH_API_URL}/auth/users/resend_activation/`,
         method: 'POST',
