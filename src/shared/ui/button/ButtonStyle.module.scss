@@ -38,7 +38,7 @@
 
 .secondary {
   background-color: var(--pixema-secondary-color);
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--pixema-primary-color);
   }
 }

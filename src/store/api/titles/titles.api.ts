@@ -3,17 +3,12 @@ import { baseApi } from '..';
 export interface Parameters {
   page?: number;
   limit: number;
-  sortField?: 'year' | 'rating.kp';
+  sortField?: string;
   'releaseYears.start'?: number;
   'releaseYears.end'?: number;
   'genres.name'?: string[];
-  type?:
-    | 'anime'
-    | 'cartoon'
-    | 'movie'
-    | 'tv-series'
-    | 'animated-series'
-    | 'tv-show';
+  type?: string;
+  'countries.name'?: string[];
 }
 
 export const titlesApi = baseApi.injectEndpoints({

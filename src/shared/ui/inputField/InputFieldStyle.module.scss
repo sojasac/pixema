@@ -21,3 +21,27 @@
     }
   }
 }
+
+.radio {
+  flex: 1 1 auto;
+  text-align: center;
+  & input {
+    display: none;
+  }
+  & .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem 0;
+    color: var(--pixema-light-color);
+    transition: all 0.15s ease-in-out;
+  }
+  & input:checked + .name {
+    background-color: var(--pixema-primary-color);
+    color: var(--pixema-white-color);
+    font-weight: 600;
+  }
+}
