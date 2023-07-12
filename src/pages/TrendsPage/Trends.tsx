@@ -28,7 +28,7 @@ export const TrendsPage = () => {
           <Button
             onClick={() =>
               void trigger(
-                { limit: 12, type: 'movie', sortField: 'rating.kp' },
+                { limit: 14, type: 'movie', sortField: 'rating.kp' },
                 true
               )
             }
@@ -39,7 +39,7 @@ export const TrendsPage = () => {
           <Button
             onClick={() =>
               void trigger(
-                { limit: 12, type: 'tv-series', sortField: 'rating.kp' },
+                { limit: 14, type: 'tv-series', sortField: 'rating.kp' },
                 true
               )
             }
@@ -50,7 +50,7 @@ export const TrendsPage = () => {
           <Button
             onClick={() =>
               void trigger(
-                { limit: 12, type: 'anime', sortField: 'rating.kp' },
+                { limit: 14, type: 'anime', sortField: 'rating.kp' },
                 true
               )
             }
@@ -61,7 +61,7 @@ export const TrendsPage = () => {
           <Button
             onClick={() =>
               void trigger(
-                { limit: 12, type: 'cartoon', sortField: 'rating.kp' },
+                { limit: 14, type: 'cartoon', sortField: 'rating.kp' },
                 true
               )
             }
@@ -72,7 +72,7 @@ export const TrendsPage = () => {
           <Button
             onClick={() =>
               void trigger(
-                { limit: 12, type: 'animated-series', sortField: 'rating.kp' },
+                { limit: 14, type: 'animated-series', sortField: 'rating.kp' },
                 true
               )
             }
@@ -107,7 +107,7 @@ export const TrendsPage = () => {
             <Button
               onClick={() =>
                 void trigger(
-                  { limit: 12, type: 'movie', sortField: 'rating.kp' },
+                  { limit: 14, type: 'movie', sortField: 'rating.kp' },
                   true
                 )
               }
@@ -119,7 +119,7 @@ export const TrendsPage = () => {
               onClick={() =>
                 void trigger(
                   {
-                    limit: 12,
+                    limit: 14,
                     type: 'tv-series',
                     sortField: 'rating.kp'
                   },
@@ -133,7 +133,7 @@ export const TrendsPage = () => {
             <Button
               onClick={() =>
                 void trigger(
-                  { limit: 12, type: 'anime', sortField: 'rating.kp' },
+                  { limit: 14, type: 'anime', sortField: 'rating.kp' },
                   true
                 )
               }
@@ -145,7 +145,7 @@ export const TrendsPage = () => {
               onClick={() =>
                 void trigger(
                   {
-                    limit: 12,
+                    limit: 14,
                     type: 'cartoon',
                     sortField: 'rating.kp'
                   },
@@ -160,7 +160,7 @@ export const TrendsPage = () => {
               onClick={() =>
                 void trigger(
                   {
-                    limit: 12,
+                    limit: 14,
                     type: 'animated-series',
                     sortField: 'rating.kp'
                   },
