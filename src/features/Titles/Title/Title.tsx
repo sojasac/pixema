@@ -5,6 +5,9 @@ import { ReactComponent as FavoritesIcon } from '~/assets/svg/favorites.svg';
 import { ReactComponent as SharedIcon } from '~/assets/svg/Share.svg';
 import { Button } from '~/shared/ui/button/Button';
 import { type MovieResponse } from '~/store/api/titles/titles.types';
+import { useAppDispatch, useAppSelector } from '~/store/store.type';
+import { favoriteSelector } from '~/store/title/title.selector';
+import { titleActions } from '~/store/title/title.slice';
 
 import TitleStyles from './Title.module.scss';
 import { RecomendTitles } from './TitleComponents/RecomendTitles';
@@ -16,6 +19,16 @@ export const getFirstUpperLetter = (anyString: string) => {
 };
 
 export const Title = ({ title }: { title: MovieResponse }) => {
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector(favoriteSelector);
+  const isFavorite = (favoriteId: number | undefined) => {
+    return favorites.find((title) => title.id === favoriteId);
+  };
+  const handleClick = () => {
+    return isFavorite(title.id)
+      ? dispatch(titleActions.delFavoriteTitles(title.id))
+      : dispatch(titleActions.addFavoriteTitles(title));
+  };
   return (
     <div className={TitleStyles.container}>
       <div className={TitleStyles.posterContent}>
@@ -29,7 +42,8 @@ export const Title = ({ title }: { title: MovieResponse }) => {
         <div className={TitleStyles.actionsWrap}>
           <Button
             icon={<FavoritesIcon />}
-            apperance="secondary"
+            apperance={isFavorite(title.id) ? 'primary' : 'secondary'}
+            onClick={() => handleClick()}
           />
           <Button
             icon={<SharedIcon />}

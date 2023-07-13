@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { type AxiosError, type AxiosResponse } from 'axios';
 
 import { type User } from '~/entities/entities';
+import { axiosAuth } from '~/store/interceptors/axios.interceptors';
 
-import { axiosAuth } from '../api/interceptors/axios.interceptors';
 import { AUTH_API_URL } from '../store.constants';
 
 export interface JWTToken {
