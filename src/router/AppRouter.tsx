@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ConfirmEmail } from '~/features/Forms/ConfirmEmail/ConfirmEmail';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
+import { PersonPage } from '~/pages/PersonPage/PersonPage';
 import { SignInPage } from '~/pages/SignInPage';
 import { SignUpPage } from '~/pages/SignUpPage';
 import { TitlePage } from '~/pages/TitlePage/TitlePage';
@@ -29,6 +30,10 @@ const routerSchema = createBrowserRouter([
       {
         path: 'movie/:id',
         Component: TitlePage
+      },
+      {
+        path: 'persons/:id',
+        Component: PersonPage
       }
     ]
   },
