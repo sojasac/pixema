@@ -20,11 +20,11 @@ export const titlesApi = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
     getTitle: build.query<MovieResponse, { id: string }>({
-      query: ({ id }) => ({ url: `movie/${id}` })
+      query: ({ id }) => ({ url: `/v1.3/movie/${id}` })
     }),
     getTitles: build.query<TitlesResponse, Parameters>({
       query: (parameters) => ({
-        url: `movie`,
+        url: `/v1.3/movie`,
         params: parameters
       })
     })
