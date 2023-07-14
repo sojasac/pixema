@@ -1,5 +1,5 @@
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
-import { Titles } from '~/features/Titles/Titles/Titles';
+import { Titles } from '~/features/Titles/TitlesComponent/Titles';
 import { Button } from '~/shared/ui/button/Button';
 import { Loader } from '~/shared/ui/loader/Loader';
 import {
@@ -11,7 +11,7 @@ import TrendsStyles from './Trends.module.scss';
 
 export const TrendsPage = () => {
   const { data: movies } = useGetTitlesQuery({
-    limit: 12,
+    limit: 14,
     type: 'movie',
     sortField: 'rating.kp'
   });
@@ -28,7 +28,7 @@ export const TrendsPage = () => {
           <Button
             onClick={() =>
               void trigger(
-                { limit: 14, type: 'movie', sortField: 'rating.kp' },
+                { limit: 35, type: 'movie', sortField: 'rating.kp' },
                 true
               )
             }

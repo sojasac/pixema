@@ -1,0 +1,35 @@
+.selectControl {
+  background-color: var(--pixema-secondary-color) !important;
+}
+.selectMenu {
+  background-color: var(--pixema-secondary-color) !important;
+  color: var(--pixema-white-color);
+}
+.selectOption {
+  background-color: var(--pixema-primary-color) !important;
+  cursor: pointer !important;
+}
+.multiValue {
+  background-color: var(--pixema-primary-color) !important;
+  padding: 0 !important;
+}
+.multiLabel,
+.selectSingleValue {
+  color: var(--pixema-white-color) !important;
+}
+.removeLabel {
+  > svg {
+    fill: var(--pixema-white-color);
+  }
+}
+.removeLabel:hover {
+  background-color: transparent !important;
+  > svg {
+    fill: var(--pixema-error-color);
+  }
+}
+.indicator {
+  > svg {
+    fill: var(--pixema-white-color) !important;
+  }
+}

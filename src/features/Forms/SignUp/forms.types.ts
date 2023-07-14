@@ -13,6 +13,4 @@ export interface FormState {
   confirmPassword: string;
 }
 
-export type FormErrors = Partial<
-  Record<keyof Omit<FormState, 'isDirty'>, string>
->;
+export type FormErrors = Partial<Record<keyof FormState, string>>;
