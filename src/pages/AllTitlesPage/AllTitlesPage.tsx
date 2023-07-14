@@ -21,19 +21,16 @@ export const AllTitlesPage = () => {
     });
   }, [data?.page]);
   if (status === 'uninitialized' && titles) {
+    const { docs: movies, page, total } = titles;
     return (
       <div>
         <h2>All Titles</h2>
-        <Titles titlesResponse={titles} />
+        <Titles titles={movies} />
         <PaginationComponent
-          onNextPage={() =>
-            void getTitles({ page: titles.page + 1, limit: 35 }, true)
-          }
-          onPrevPage={() =>
-            void getTitles({ page: titles.page - 1, limit: 35 }, true)
-          }
-          currentPage={titles.page}
-          total={titles.total}
+          onNextPage={() => void getTitles({ page: page + 1, limit: 35 }, true)}
+          onPrevPage={() => void getTitles({ page: page - 1, limit: 35 }, true)}
+          currentPage={page}
+          total={total}
         />
       </div>
     );
@@ -45,19 +42,16 @@ export const AllTitlesPage = () => {
     <div>Ooops, something went wrong!</div>;
   }
   if (isSuccess && data) {
+    const { docs: titles, page, pages } = data;
     return (
       <div>
         <h2>All Titles</h2>
-        <Titles titlesResponse={data} />
+        <Titles titles={titles} />
         <PaginationComponent
-          onNextPage={() =>
-            void getTitles({ page: data?.page + 1, limit: 35 }, true)
-          }
-          onPrevPage={() =>
-            void getTitles({ page: data?.page - 1, limit: 35 }, true)
-          }
-          currentPage={data.page}
-          total={data.total}
+          onNextPage={() => void getTitles({ page: page + 1, limit: 35 }, true)}
+          onPrevPage={() => void getTitles({ page: page - 1, limit: 35 }, true)}
+          currentPage={page}
+          total={pages}
         />
       </div>
     );
