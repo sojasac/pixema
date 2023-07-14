@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ConfirmEmail } from '~/features/Forms/ConfirmEmail/ConfirmEmail';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
+import { FavoritesPage } from '~/pages/FavoritesPage/FavoritesPage';
 import { PersonPage } from '~/pages/PersonPage/PersonPage';
 import { SignInPage } from '~/pages/SignInPage';
 import { SignUpPage } from '~/pages/SignUpPage';
@@ -26,6 +27,10 @@ const routerSchema = createBrowserRouter([
       {
         path: '/trends',
         Component: TrendsPage
+      },
+      {
+        path: '/favorites',
+        Component: FavoritesPage
       },
       {
         path: 'movie/:id',

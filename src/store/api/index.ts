@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { secondaryToken } from './interceptors/axios.constants';
+import { secondaryToken } from './constants';
 import { AUTH_API_URL, BASE_API_URL } from '../store.constants';
 
 export const baseApi = createApi({

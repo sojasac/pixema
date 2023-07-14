@@ -7,22 +7,34 @@
     flex-direction: column;
     gap: 25px;
     position: relative;
-    .ratingWrap {
+    .iconsWrap {
       position: absolute;
-      top: 40px;
-      left: 20px;
-      min-width: 25px;
-      padding: 2px 8px;
-      border-radius: 6px;
-      text-align: center;
-      color: var(--pixema-white-color);
-      cursor: default;
+      top: 10px;
+      left: 5px;
       z-index: 2;
-    }
-    .favoritesWrap {
-      background-color: var(--pixema-secondary-color);
-      > svg {
-        fill: var(--pixema-primary-color);
+      .ratingWrap {
+        min-width: 25px;
+        padding: 2px 5px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--pixema-white-color);
+        cursor: default;
+      }
+      .favoritesWrap {
+        background-color: var(--pixema-secondary-color);
+        padding: 5px;
+        width: fit-content;
+        > svg {
+          fill: var(--pixema-primary-color);
+        }
+      }
+      &Active {
+        left: 10%;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

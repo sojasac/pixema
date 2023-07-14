@@ -2,22 +2,21 @@ import classNames from 'classnames';
 
 import { ReactComponent as FavoritesSvg } from '~/assets/svg/favorites.svg';
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
-import { type TitlesResponse } from '~/store/api/titles/titles.types';
+import { type MovieResponse } from '~/store/api/titles/titles.types';
 
 import TitleStyle from './Titles.module.scss';
 import { getFirstUpperLetter } from '../Title/Title';
 import { TitleInRow } from '../Title/TitleComponents/TitleInRow';
 
 export const Titles = ({
-  titlesResponse,
+  titles,
   isFavorites,
   isTrends
 }: {
-  titlesResponse: TitlesResponse;
+  titles: MovieResponse[];
   isFavorites?: boolean;
   isTrends?: boolean;
 }) => {
-  const { docs: titles } = titlesResponse;
   return (
     <div className={TitleStyle.wrapper}>
       {titles.map((title) => {
@@ -26,7 +25,12 @@ export const Titles = ({
             className={TitleStyle.container}
             key={title.id}
           >
-            <div className={TitleStyle.posterWrap}>
+            <div
+              className={classNames({
+                [TitleStyle.iconsWrap]: true,
+                [TitleStyle.iconsWrapActive]: isFavorites
+              })}
+            >
               <div
                 className={classNames({
                   [TitleStyle.ratingWrap]: true,

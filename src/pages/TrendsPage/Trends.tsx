@@ -10,13 +10,14 @@ import {
 import TrendsStyles from './Trends.module.scss';
 
 export const TrendsPage = () => {
-  const { data: titles } = useGetTitlesQuery({
+  const { data: movies } = useGetTitlesQuery({
     limit: 12,
     type: 'movie',
     sortField: 'rating.kp'
   });
   const [trigger, result] = useLazyGetTitlesQuery();
-  if (result.status === 'uninitialized' && titles) {
+  if (result.status === 'uninitialized' && movies) {
+    const { docs: titles } = movies;
     return (
       <div>
         <div className={TrendsStyles.titleWrap}>
@@ -81,7 +82,7 @@ export const TrendsPage = () => {
           </Button>
         </div>
         <Titles
-          titlesResponse={titles}
+          titles={titles}
           isTrends
         />
       </div>
@@ -95,6 +96,7 @@ export const TrendsPage = () => {
       return <Loader />;
     }
     if (data) {
+      const { docs: titles } = data;
       return (
         <div>
           <div className={TrendsStyles.titleWrap}>
@@ -171,7 +173,7 @@ export const TrendsPage = () => {
             </Button>
           </div>
           <Titles
-            titlesResponse={data}
+            titles={titles}
             isTrends
           />
         </div>
