@@ -8,6 +8,7 @@ import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
 import { AllTitlesPage } from '~/pages/AllTitlesPage/AllTitlesPage';
 import { FavoritesPage } from '~/pages/FavoritesPage/FavoritesPage';
 import { PersonPage } from '~/pages/PersonPage/PersonPage';
+import { SearchPage } from '~/pages/SearchPage/SearchPage';
 import { SignInPage } from '~/pages/SignInPage/SignInPage';
 import { SignUpPage } from '~/pages/SignUpPage/SignUpPage';
 import { TitlePage } from '~/pages/TitlePage/TitlePage';
@@ -36,6 +37,10 @@ const routerSchema = createBrowserRouter([
       {
         path: '/all-titles',
         Component: AllTitlesPage
+      },
+      {
+        path: '/search/:query',
+        Component: SearchPage
       },
       {
         path: 'movie/:id',

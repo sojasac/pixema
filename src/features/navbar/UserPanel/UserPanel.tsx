@@ -26,7 +26,10 @@ export const UserPanel = ({
     toggle();
   };
   return (
-    <div className={UserStyles.container}>
+    <div
+      className={UserStyles.container}
+      onClick={user ? toggle : () => navigation('/auth/sign-in')}
+    >
       <div className={UserStyles.userIconWrap}>
         {user ? user.username.slice(0, 1).toUpperCase() : <UserIcon />}
       </div>
@@ -40,7 +43,6 @@ export const UserPanel = ({
             border: 'none'
           }}
           icon={user ? <VectorDown /> : <VectorRight />}
-          onClick={user ? toggle : () => navigation('/auth/sign-in')}
         />
         <div
           className={classNames({

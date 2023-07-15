@@ -5,8 +5,8 @@ import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
 export const MenuSchema = [
   {
     icon: <HomeSvg />,
-    path: '/',
-    title: 'Home'
+    path: '/all-titles',
+    title: 'All Titles'
   },
   {
     icon: <TrendsSvg />,
