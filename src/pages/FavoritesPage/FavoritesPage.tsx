@@ -1,4 +1,4 @@
-import { Titles } from '~/features/Titles/Titles/Titles';
+import { Titles } from '~/features/Titles/TitlesComponent/Titles';
 import { useAppSelector } from '~/store/store.type';
 import { favoriteSelector } from '~/store/title/title.selector';
 

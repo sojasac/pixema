@@ -25,3 +25,27 @@ export const InputField = ({
     </div>
   );
 };
+export const RadioInput = ({
+  value,
+  name,
+  ...inputProperties
+}: { name: string; value: string } & InputFieldProperties) => {
+  return (
+    <label className={InputFieldStyle['radio']}>
+      <input
+        {...inputProperties}
+        type="radio"
+        name="radio"
+        value={value}
+      />
+      <span className={InputFieldStyle['name']}>{name}</span>
+    </label>
+  );
+};
+export interface SelectOptions {
+  name: string;
+  slug: string;
+}
+export const OptionInput = ({ name }: { name: string }) => {
+  return <option value={name}>{name}</option>;
+};

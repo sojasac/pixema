@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import noposter from '~/assets/layouts/noposter.jpg';
 
@@ -13,6 +13,7 @@ export const TitleInRow = ({
   name: string;
   poster?: string;
 }) => {
+  const navigate = useNavigate();
   return (
     <div className={TableInRowStyles.titleCard}>
       <div className={TableInRowStyles.posterWrap}>
@@ -20,6 +21,7 @@ export const TitleInRow = ({
           src={poster || noposter}
           alt="Title_poster"
           className={TableInRowStyles.posterImg}
+          onClick={() => navigate(`/movie/${id}`)}
         />
       </div>
       <div>
