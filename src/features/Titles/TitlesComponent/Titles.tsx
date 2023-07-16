@@ -46,7 +46,7 @@ export const Titles = ({
                     <TrendsSvg style={{ fill: 'white' }} />
                   </div>
                 )}
-                <span>{title.rating.kp.toFixed(1)}</span>
+                {title.rating.kp && <span>{title.rating.kp.toFixed(1)}</span>}
               </div>
               {isFavorites && (
                 <div className={TitleStyle.favoritesWrap}>

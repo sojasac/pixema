@@ -94,8 +94,29 @@ export interface MovieResponse {
   type: string;
 }
 
+export interface MovieSearchResponse {
+  id: number;
+  name: string;
+  alternativeName: string;
+  enName: string;
+  type: string;
+  shortDescription: string;
+  genres: string[];
+  logo: string;
+  poster: string;
+  rating: number;
+  movieLength: number;
+}
+
 export interface TitlesResponse {
   docs: MovieResponse[];
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+export interface TitlesSearchResponse {
+  docs: MovieSearchResponse[];
   total: number;
   limit: number;
   page: number;

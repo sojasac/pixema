@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
 
 import { PaginationComponent } from '~/features/Pagination/Pagination';
@@ -7,7 +9,7 @@ import {
   useGetSearchQuery,
   useLazyGetSearchQuery
 } from '~/store/api/search/search';
-import { type TitlesResponse } from '~/store/api/titles/titles.types';
+import { type TitlesSearchResponse } from '~/store/api/titles/titles.types';
 
 export const SearchPage = () => {
   const { query } = useParams<'query'>();
@@ -18,6 +20,12 @@ export const SearchPage = () => {
   } = useGetSearchQuery({ page: 1, limit: 10, query: query || '' });
   const [getSearch, { isSuccess, isError, isLoading, data }] =
     useLazyGetSearchQuery();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0
+    });
+  }, [data?.page]);
 
   if (status === 'rejected' || isError) {
     return <div>Oooops, something went wrong: {JSON.stringify(error)}</div>;
@@ -30,7 +38,7 @@ export const SearchPage = () => {
       docs: movies,
       page,
       pages
-    } = (data as TitlesResponse) || (titles as TitlesResponse);
+    } = (data as TitlesSearchResponse) || (titles as TitlesSearchResponse);
 
     return (
       <div>

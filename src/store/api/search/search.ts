@@ -1,5 +1,5 @@
 import { baseApi } from '..';
-import { type TitlesResponse } from '../titles/titles.types';
+import { type TitlesSearchResponse } from '../titles/titles.types';
 
 export interface SearchPayload {
   limit: number;
@@ -10,7 +10,7 @@ export interface SearchPayload {
 export const searchApi = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
-    getSearch: build.query<TitlesResponse, SearchPayload>({
+    getSearch: build.query<TitlesSearchResponse, SearchPayload>({
       query: ({ page, query, limit }) => {
         const parameters = new URLSearchParams();
         parameters.append('page', `${page}`);
