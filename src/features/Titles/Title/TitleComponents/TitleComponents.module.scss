@@ -1,5 +1,5 @@
 table {
-  width: 80%;
+  width: 100%;
   tr {
     width: 100%;
     display: flex;
@@ -7,7 +7,7 @@ table {
     justify-content: space-between;
     margin-bottom: 15px;
     .tableKeys {
-      min-width: 60%;
+      min-width: 30%;
     }
     .tableValues {
       color: var(--pixema-text-color);
@@ -58,7 +58,6 @@ table {
   .posterWrap {
     position: relative;
     border-radius: 20px;
-    height: 200px;
     cursor: pointer;
     .posterImg {
       width: 100%;
@@ -85,9 +84,10 @@ table {
   h2 {
     color: var(--pixema-text-color);
   }
-  .recomendContent {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+}
+
+@media (max-width: 850px) {
+  .recomendWrap {
+    display: none;
   }
 }

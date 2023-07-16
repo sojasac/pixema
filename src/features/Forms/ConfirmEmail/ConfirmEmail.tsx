@@ -41,6 +41,7 @@ export const ConfirmEmail = () => {
             label="Email"
             value={email}
             onChange={({ target: { value } }) => setEmail(value)}
+            style={{ marginBottom: '20px' }}
           />
           <Button
             style={{ width: '100%' }}

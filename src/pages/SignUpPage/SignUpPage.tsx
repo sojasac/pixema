@@ -39,7 +39,7 @@ export const SignUpPage = () => {
     );
   }
   if (isSuccess) {
-    navigate('/auth/confirm-email');
+    navigate('/auth/sign-in');
   }
 };
 /* eslint-enable @typescript-eslint/no-misused-promises -- RTK Query*/

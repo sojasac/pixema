@@ -23,7 +23,7 @@ export const PaginationComponent = ({
         disabled={currentPage === 1}
       />
       <p>
-        {currentPage}/{total}
+        Page: {currentPage} / From: {total}
       </p>
       <Button
         icon={<ArrowRight />}

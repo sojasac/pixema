@@ -1,10 +1,10 @@
 import { ReactComponent as FavoritesSvg } from '~/assets/svg/favorites.svg';
-import { ReactComponent as HomeSvg } from '~/assets/svg/home.svg';
+import { ReactComponent as MoviesSvg } from '~/assets/svg/movies.svg';
 import { ReactComponent as TrendsSvg } from '~/assets/svg/trends.svg';
 
 export const MenuSchema = [
   {
-    icon: <HomeSvg />,
+    icon: <MoviesSvg />,
     path: '/all-titles',
     title: 'All Titles'
   },

@@ -96,3 +96,22 @@
     transform: translateY(0px) rotateX(15deg) rotateY(-20deg);
   }
 }
+
+@media (max-width: 650px) {
+  .switchContainer {
+    left: 0;
+  }
+  .switch {
+    width: 1em;
+  }
+  .slider:before {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+@media (max-width: 650px) {
+  .slider:before {
+    width: 1em;
+    height: 1em;
+  }
+}

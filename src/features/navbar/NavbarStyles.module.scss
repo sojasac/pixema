@@ -13,3 +13,28 @@
     position: relative;
   }
 }
+
+@media screen and (max-width: 950px) {
+  .container {
+    flex-direction: column;
+    gap: 15px;
+    .activePanels {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    .activePanels {
+      gap: 20px;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    .activePanels {
+      gap: 7px;
+    }
+  }
+}

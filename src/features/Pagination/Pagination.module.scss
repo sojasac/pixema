@@ -5,3 +5,14 @@
   align-items: center;
   margin-top: 30px;
 }
+
+@media (max-width: 800px) {
+  .container button {
+    width: 100px;
+  }
+}
+@media (max-width: 500px) {
+  .container button {
+    width: 50px;
+  }
+}

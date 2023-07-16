@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
+import { ReactComponent as LogOutSvg } from '~/assets/svg/log-out.svg';
 import { ReactComponent as UserIcon } from '~/assets/svg/user.svg';
 import { ReactComponent as VectorDown } from '~/assets/svg/vectorDown.svg';
 import { ReactComponent as VectorRight } from '~/assets/svg/vectorRight.svg';
@@ -44,20 +45,20 @@ export const UserPanel = ({
           }}
           icon={user ? <VectorDown /> : <VectorRight />}
         />
-        <div
-          className={classNames({
-            [UserStyles.logout]: true,
-            [UserStyles.logoutActive]: isOpen
-          })}
+      </div>
+      <div
+        className={classNames({
+          [UserStyles.logout]: true,
+          [UserStyles.logoutActive]: isOpen
+        })}
+      >
+        <Button
+          onClick={() => handleClick()}
+          apperance="secondary"
+          icon={<LogOutSvg />}
         >
-          <Button
-            onClick={() => handleClick()}
-            style={{ width: 'fit-content', padding: '0 10px' }}
-            apperance="secondary"
-          >
-            LogOut
-          </Button>
-        </div>
+          <span>LogOut</span>
+        </Button>
       </div>
     </div>
   );

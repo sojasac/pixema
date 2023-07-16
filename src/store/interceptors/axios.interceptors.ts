@@ -1,13 +1,8 @@
-import axiosCore, { type InternalAxiosRequestConfig } from 'axios';
+import axiosCore from 'axios';
+
+import { checkTokensInterceptor, proccessingError } from './axios.utils';
 
 export const axiosAuth = axiosCore.create();
 
-axiosAuth.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  const accessToken = localStorage.getItem('@pixema/access-token');
-  if (!accessToken) {
-    throw new Error('Unauthorized');
-  }
-  config.headers.set('Authorization', `Bearer ${accessToken}`);
-
-  return config;
-});
+axiosAuth.interceptors.request.use(checkTokensInterceptor);
+axiosAuth.interceptors.response.use(undefined, proccessingError);

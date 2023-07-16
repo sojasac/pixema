@@ -42,3 +42,14 @@
   visibility: visible;
   opacity: 1;
 }
+
+@media (max-width: 950px) {
+  .container {
+    margin: 20px auto auto -25px;
+  }
+}
+@media (max-width: 550px) {
+  .container {
+    margin: 20px auto auto -10px;
+  }
+}
