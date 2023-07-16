@@ -75,6 +75,7 @@ startAppListening({
   effect: () => {
     localStorage.removeItem('@pixema/access-token');
     localStorage.removeItem('@pixema/refresh-token');
+    localStorage.removeItem('@pixema/favorite-titles');
   }
 });
 export const { actions: userActions } = userSlice;

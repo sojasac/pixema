@@ -23,7 +23,7 @@ export const Navbar = () => {
     setIsOpenMenu((hasBeenOpened) => !hasBeenOpened);
   };
   const toggleUser = () => {
-    setIsOpenUser((hasBeenOpened) => !hasBeenOpened);
+    setIsOpenUser((hasBeenOpenedUser) => !hasBeenOpenedUser);
   };
   const logout = () => {
     dispatch(userActions.logout());

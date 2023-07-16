@@ -22,8 +22,8 @@ export const UserPanel = ({
 }) => {
   const navigation = useNavigate();
   const handleClick = () => {
+    toggle;
     onLogout();
-    toggle();
   };
   return (
     <div
@@ -51,7 +51,7 @@ export const UserPanel = ({
           })}
         >
           <Button
-            onClick={handleClick}
+            onClick={() => handleClick()}
             style={{ width: 'fit-content', padding: '0 10px' }}
             apperance="secondary"
           >
