@@ -19,7 +19,7 @@ export const SwiperButtonNext = ({
       apperance="secondary"
       onClick={() => swiper.slideNext()}
       icon={icon}
-      style={{ width: 'fit-content', background: 'none' }}
+      style={{ width: '50px', height: '50px' }}
     >
       {children}
     </Button>
@@ -35,7 +35,7 @@ export const SwiperButtonPrevious = ({
       apperance="secondary"
       onClick={() => swiper.slidePrev()}
       icon={icon}
-      style={{ width: 'fit-content', background: 'none' }}
+      style={{ width: '50px', height: '50px' }}
     >
       {children}
     </Button>
@@ -61,7 +61,13 @@ export const SwiperComponent = ({
         flexDirection: 'column-reverse'
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginBottom: '20px'
+        }}
+      >
         <h2>{name}</h2>
         <div style={{ display: 'flex', gap: '10px' }}>
           <SwiperButtonPrevious icon={<ArrowLeft />} />

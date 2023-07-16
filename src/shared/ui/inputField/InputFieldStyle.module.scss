@@ -1,6 +1,6 @@
 .container {
   border-radius: 10px;
-  color: var(--pixema-white-color);
+  color: var(--pixema-text-color);
   display: flex;
   flex-direction: column;
   > label {
@@ -12,9 +12,9 @@
     border: none;
     display: block;
     padding: 16px 20px;
-    color: var(--pixema-white-color);
+    color: var(--pixema-text-color);
     &::placeholder {
-      color: var(--pixema-light-color);
+      color: var(--pixema-seconadry-text-color);
     }
     &:focus-visible {
       outline: none;
@@ -41,7 +41,7 @@
   }
   & input:checked + .name {
     background-color: var(--pixema-primary-color);
-    color: var(--pixema-white-color);
+    color: var(--pixema-text-color);
     font-weight: 600;
   }
 }

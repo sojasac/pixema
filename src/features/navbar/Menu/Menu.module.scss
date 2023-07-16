@@ -28,11 +28,11 @@
     }
     > a {
       text-decoration: none;
-      color: var(--pixema-white-color);
+      color: var(--pixema-secondary-text-color);
     }
     > svg {
-      fill: var(--pixema-white-color);
-      stroke: var(--pixema-white-color);
+      fill: var(--pixema-secondary-text-color);
+      stroke: var(--pixema-secondary-text-color);
     }
   }
 }

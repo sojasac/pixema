@@ -14,6 +14,8 @@ import { SignUpPage } from '~/pages/SignUpPage/SignUpPage';
 import { TitlePage } from '~/pages/TitlePage/TitlePage';
 import { TrendsPage } from '~/pages/TrendsPage/Trends';
 import { useAppDispatch, useAppSelector } from '~/store/store.type';
+import { AppTheme } from '~/store/theme/theme.constants';
+import { selectAppTheme } from '~/store/theme/theme.selectors';
 import { fetchUser } from '~/store/user/user.api';
 import { selectTokens } from '~/store/user/user.selectors';
 
@@ -82,14 +84,18 @@ const routerSchema = createBrowserRouter([
 export const AppRouter = () => {
   const dispatch = useAppDispatch();
   const tokens = useAppSelector(selectTokens);
+  const theme = useAppSelector(selectAppTheme);
   useEffect(() => {
+    document
+      .querySelector(':root')
+      ?.classList[theme === AppTheme.Light ? 'add' : 'remove']('light');
     if (tokens) {
       const promise = dispatch(fetchUser());
       return () => {
         promise.abort('cancelled');
       };
     }
-  }, [tokens, dispatch]);
+  }, [tokens, dispatch, theme]);
 
   return <RouterProvider router={routerSchema} />;
 };

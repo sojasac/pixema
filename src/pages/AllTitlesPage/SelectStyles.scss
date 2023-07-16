@@ -3,7 +3,7 @@
 }
 .selectMenu {
   background-color: var(--pixema-secondary-color) !important;
-  color: var(--pixema-white-color);
+  color: var(--pixema-text-color);
 }
 .selectOption {
   background-color: var(--pixema-primary-color) !important;
@@ -15,11 +15,11 @@
 }
 .multiLabel,
 .selectSingleValue {
-  color: var(--pixema-white-color) !important;
+  color: var(--pixema-text-color) !important;
 }
 .removeLabel {
   > svg {
-    fill: var(--pixema-white-color);
+    fill: var(--pixema-text-color);
   }
 }
 .removeLabel:hover {
@@ -30,6 +30,6 @@
 }
 .indicator {
   > svg {
-    fill: var(--pixema-white-color) !important;
+    fill: var(--pixema-text-color) !important;
   }
 }

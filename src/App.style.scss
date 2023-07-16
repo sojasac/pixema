@@ -13,15 +13,22 @@
   // Contextual Colors
   --pixema-error-color: #ff5154;
   --pixema-light-color: #afb2b6;
-  --pixema-white-color: #fff;
+  --pixema-text-color: #fff;
   // Tertiary Colors
   --pixema-green-color: #00a340;
   --pixema-yellow-color: #f3a608;
   --pixema-orange-color: #f45d2d;
 
   // ________________________________
-  --pixema-text-color: var(--pixema-light-color);
+  --pixema-secondary-text-color: #fff;
   --pixema-header-height: 115px;
+
+  &.light {
+    --pixema-background-black: #fff;
+    --pixema-background-dark: #e8e7e7;
+    --pixema-secondary-color: #b1b1b1;
+    --pixema-text-color: #242426;
+  }
 }
 
 body {
@@ -41,7 +48,7 @@ a {
 }
 h2,
 h3 {
-  color: var(--pixema-white-color);
+  color: var(--pixema-text-color);
   margin: 0;
   margin-bottom: 20px;
   padding: 0;

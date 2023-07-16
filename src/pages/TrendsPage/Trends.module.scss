@@ -6,8 +6,8 @@
   width: fit-content;
   > svg {
     margin-top: 10px;
-    fill: var(--pixema-white-color);
-    stroke: var(--pixema-white-color);
+    fill: var(--pixema-text-color);
+    stroke: var(--pixema-text-color);
   }
   &:hover > svg {
     fill: var(--pixema-yellow-color);

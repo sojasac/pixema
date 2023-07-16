@@ -27,6 +27,8 @@
     svg {
       cursor: pointer;
       margin: 0;
+      fill: var(--pixema-text-color);
+      stroke: var(--pixema-text-color);
     }
     .logout {
       position: absolute;
