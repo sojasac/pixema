@@ -1,0 +1,76 @@
+.container {
+  --pixema-max-width: 1920px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 65px;
+  position: relative;
+
+  main {
+    margin: 0 10%;
+    max-width: var(--pixema-max-width);
+  }
+
+  form {
+    margin: auto, auto;
+  }
+
+  footer {
+    width: 100%;
+    margin: 0, auto;
+  }
+}
+
+.formsLayout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-image: url('../assets/layouts/Frame\ 1438.png');
+}
+
+@media (max-width: 1920px) {
+  .container {
+    main {
+      min-height: calc(100vh - 220px);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    main {
+      min-height: calc(100vh - 270px);
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    main {
+      min-height: calc(100vh - 230px);
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    padding: 0 5px;
+    main {
+      min-height: calc(100vh - 250px);
+    }
+  }
+}

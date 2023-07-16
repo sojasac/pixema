@@ -1,0 +1,22 @@
+.titleWrap {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  width: fit-content;
+  > svg {
+    margin-top: 10px;
+    fill: var(--pixema-text-color);
+    stroke: var(--pixema-text-color);
+  }
+  &:hover > svg {
+    fill: var(--pixema-yellow-color);
+    stroke: var(--pixema-yellow-color);
+  }
+}
+.btnWrap {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+  justify-content: center;
+}

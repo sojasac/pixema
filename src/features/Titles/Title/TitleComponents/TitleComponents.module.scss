@@ -1,0 +1,95 @@
+table {
+  width: 100%;
+  tr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    .tableKeys {
+      min-width: 30%;
+    }
+    .tableValues {
+      color: var(--pixema-text-color);
+      text-align: right;
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        .personsContent {
+          position: relative;
+          width: fit-content;
+          margin: 0;
+          .personPhotoWrap {
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            top: -110px;
+            left: calc(50% - 50px);
+            visibility: hidden;
+            img {
+              border-radius: 1.5rem;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          &:hover .personPhotoWrap {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  a {
+    color: var(--pixema-text-color);
+    &:hover {
+      color: var(--pixema-primary-color);
+    }
+  }
+  span {
+    cursor: default;
+  }
+}
+.titleCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .posterWrap {
+    position: relative;
+    border-radius: 20px;
+    height: 200px;
+    max-width: 150px;
+    cursor: pointer;
+    .posterImg {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      transition: 1s;
+    }
+  }
+}
+.name {
+  margin-top: 20px;
+  text-align: center;
+  > a {
+    text-decoration: none;
+    color: var(--pixema-text-color);
+    &:hover {
+      color: var(--pixema-primary-color);
+    }
+  }
+}
+
+.recomendWrap {
+  margin-bottom: 20px;
+  h2 {
+    color: var(--pixema-text-color);
+  }
+}
+
+@media (max-width: 850px) {
+  .recomendWrap {
+    display: none;
+  }
+}
