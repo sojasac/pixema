@@ -1,0 +1,44 @@
+.container {
+  background-color: var(--pixema-background-dark);
+  width: 30%;
+  margin: 5% auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-radius: 10px;
+  > h2 {
+    color: var(--pixema-text-color);
+  }
+  .error {
+    display: flex;
+    flex-direction: column;
+    color: var(--pixema-error-color);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 50%;
+    margin: 10% auto;
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    width: 60%;
+    margin: 15% auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 70%;
+    margin: 20% auto;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    width: 80%;
+    margin: 25% auto;
+  }
+}

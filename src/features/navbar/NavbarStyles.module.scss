@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  padding: 40px 0 56px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--pixema-text-color);
+  .activePanels {
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .container {
+    flex-direction: column;
+    gap: 15px;
+    .activePanels {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    .activePanels {
+      gap: 20px;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    .activePanels {
+      gap: 7px;
+    }
+  }
+}

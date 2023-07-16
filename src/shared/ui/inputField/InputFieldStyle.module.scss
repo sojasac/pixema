@@ -1,0 +1,47 @@
+.container {
+  border-radius: 10px;
+  color: var(--pixema-text-color);
+  display: flex;
+  flex-direction: column;
+  > label {
+    margin-bottom: 8px;
+  }
+  > input {
+    background-color: var(--pixema-secondary-color);
+    border-radius: 10px;
+    border: none;
+    display: block;
+    padding: 16px 20px;
+    color: var(--pixema-text-color);
+    &::placeholder {
+      color: var(--pixema-seconadry-text-color);
+    }
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.radio {
+  flex: 1 1 auto;
+  text-align: center;
+  & input {
+    display: none;
+  }
+  & .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem 0;
+    color: var(--pixema-text-color);
+    transition: all 0.15s ease-in-out;
+  }
+  & input:checked + .name {
+    background-color: var(--pixema-primary-color);
+    color: var(--pixema-text-color);
+    font-weight: 600;
+  }
+}
