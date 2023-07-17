@@ -5,21 +5,27 @@
   justify-content: space-between;
   align-items: center;
   color: var(--pixema-text-color);
+  & > div:first-child {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+  }
   .activePanels {
-    width: 80%;
+    width: 70%;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto;
     gap: 40px;
     position: relative;
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1150px) {
   .container {
     flex-direction: column;
     gap: 15px;
     .activePanels {
       width: 100%;
+      grid-template-columns: auto 1fr auto;
     }
   }
 }

@@ -36,6 +36,9 @@
     }
   }
 }
+.burger {
+  display: none;
+}
 .active {
   z-index: 3;
   top: 100%;
@@ -43,9 +46,12 @@
   opacity: 1;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1150px) {
   .container {
     margin: 20px auto auto -25px;
+  }
+  .burger {
+    display: block;
   }
 }
 @media (max-width: 550px) {

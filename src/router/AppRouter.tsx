@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { ConfirmEmail } from '~/features/Forms/ConfirmEmail/ConfirmEmail';
+import { PageNotFound } from '~/layouts/404_Layout/404';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
 import { AllTitlesPage } from '~/pages/AllTitlesPage/AllTitlesPage';
@@ -77,7 +78,7 @@ const routerSchema = createBrowserRouter([
   },
   {
     path: '*',
-    element: <div>Not Found!!</div>
+    element: <PageNotFound />
   }
 ]);
 

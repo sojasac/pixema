@@ -11,7 +11,7 @@ export const MenuSchema = [
   {
     icon: <TrendsSvg />,
     path: '/trends',
-    title: 'Trends'
+    title: 'Most popular'
   },
   {
     icon: <FavoritesSvg />,

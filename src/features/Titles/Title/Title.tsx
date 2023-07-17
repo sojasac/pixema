@@ -1,13 +1,16 @@
-import classNames from 'classnames';
+import { useState } from 'react';
 
-import noposter from '~/assets/layouts/noposter.jpg';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+
 import { ReactComponent as FavoritesIcon } from '~/assets/svg/favorites.svg';
-import { ReactComponent as SharedIcon } from '~/assets/svg/Share.svg';
+import noposter from '~/assets/svg/noposter.jpg';
 import { Button } from '~/shared/ui/button/Button';
 import { type MovieResponse } from '~/store/api/titles/titles.types';
 import { useAppDispatch, useAppSelector } from '~/store/store.type';
 import { favoriteSelector } from '~/store/title/title.selector';
 import { titleActions } from '~/store/title/title.slice';
+import { selectUser } from '~/store/user/user.selectors';
 
 import TitleStyles from './Title.module.scss';
 import { RecomendTitles } from './TitleComponents/RecomendTitles';
@@ -21,6 +24,8 @@ export const getFirstUpperLetter = (anyString: string) => {
 export const Title = ({ title }: { title: MovieResponse }) => {
   const dispatch = useAppDispatch();
   const favorites = useAppSelector(favoriteSelector);
+  const user = useAppSelector(selectUser);
+  const [isErrorFavorites, setIsErrorFavorites] = useState(false);
   const isFavorite = (favoriteId: number | undefined) => {
     return favorites.find((title) => title.id === favoriteId);
   };
@@ -43,12 +48,23 @@ export const Title = ({ title }: { title: MovieResponse }) => {
           <Button
             icon={<FavoritesIcon />}
             apperance={isFavorite(title.id) ? 'primary' : 'secondary'}
-            onClick={() => handleClick()}
+            onClick={() => (user ? handleClick() : setIsErrorFavorites(true))}
           />
-          <Button
-            icon={<SharedIcon />}
-            apperance="secondary"
-          />
+          {isErrorFavorites && (
+            <div
+              className={classNames({
+                [TitleStyles.errorFavorites]: true,
+                [TitleStyles.errorFavoritesActive]: isErrorFavorites
+              })}
+            >
+              <span className={TitleStyles.errorFavoritesMessage}>
+                You must be logged in before adding to favorites
+              </span>
+              <span>
+                <Link to={'/auth/sign-in'}>Sign in?</Link>?
+              </span>
+            </div>
+          )}
         </div>
         {title.videos?.trailers[0]?.url && (
           <div>
@@ -57,7 +73,7 @@ export const Title = ({ title }: { title: MovieResponse }) => {
           </div>
         )}
       </div>
-      <div>
+      <div style={{ width: '95%' }}>
         <p>
           {title.genres.map((genre, id) => {
             if (id === title.genres.length - 1) {

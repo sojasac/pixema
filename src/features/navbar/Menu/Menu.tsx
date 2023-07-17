@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
 import MenuStyles from './Menu.module.scss';
-import { MenuSchema } from './Menu.schema';
+import { MenuSchema } from '../../constans/Menu.schema';
 
 export const Menu = ({
   isOpen,

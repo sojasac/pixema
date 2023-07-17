@@ -10,6 +10,7 @@ export interface MovieParameters {
   'countries.name'?: string[];
   'rating.kp'?: string;
   sortType?: 1 | -1;
+  'rating.filmCritics'?: string;
 }
 
 export const titlesApi = baseApi.injectEndpoints({
@@ -28,6 +29,7 @@ export const titlesApi = baseApi.injectEndpoints({
         type,
         'countries.name': countries,
         'rating.kp': rating,
+        'rating.filmCritics': ratingCritics,
         sortType
       }) => {
         const parameters = new URLSearchParams();
@@ -46,8 +48,9 @@ export const titlesApi = baseApi.injectEndpoints({
         }
         type && parameters.append('type', type);
         rating && parameters.append('rating.kp', rating);
-        year && parameters.append('year', year);
+        year && parameters.append('year', `${year}`);
         sortType && parameters.append('sortType', `${sortType}`);
+        ratingCritics && parameters.append('rating.filmCritics', ratingCritics);
         return {
           url: '/v1.3/movie',
           params: parameters

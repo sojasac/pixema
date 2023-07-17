@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
-import noposter from '~/assets/layouts/noposter.jpg';
+import noposter from '~/assets/svg/noposter.jpg';
 import { type MovieSearchResponse } from '~/store/api/titles/titles.types';
 
 import SearchStyles from './Search.module.scss';
@@ -51,6 +51,7 @@ export const SearchComponent = ({
                   })}
                 </p>
               )}
+              <p>{movie.year && <span>Year: {movie.year}</span>}</p>
               <div className={SearchStyles.ratingWrap}>
                 {movie.rating ? (
                   <div

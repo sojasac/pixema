@@ -1,0 +1,70 @@
+.asideContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 200px;
+  align-items: center;
+
+  > div {
+    display: flex;
+    gap: 25px;
+    width: 40%;
+    &:hover {
+      > a {
+        color: var(--pixema-primary-color);
+      }
+      > svg {
+        fill: var(--pixema-primary-color);
+        stroke: var(--pixema-primary-color);
+      }
+    }
+    > a {
+      text-decoration: none;
+      color: var(--pixema-text-color);
+      font-size: 20px;
+      text-align-last: left;
+    }
+    > svg {
+      fill: var(--pixema-text-color);
+      stroke: var(--pixema-text-color);
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+@media (max-height: 700px) {
+  .asideContent {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .asideContent {
+    > div {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .asideContent {
+    > div {
+      width: 60%;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .asideContent {
+    > div {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .asideContent {
+    display: none;
+  }
+}

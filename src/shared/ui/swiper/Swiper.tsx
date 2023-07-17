@@ -60,6 +60,20 @@ export const SwiperComponent = ({
         display: 'flex',
         flexDirection: 'column-reverse'
       }}
+      breakpoints={{
+        1400: {
+          slidesPerView: 5
+        },
+        1200: {
+          slidesPerView: 4
+        },
+        950: {
+          slidesPerView: 5
+        },
+        800: {
+          slidesPerView: 4
+        }
+      }}
     >
       <div
         style={{
@@ -75,12 +89,9 @@ export const SwiperComponent = ({
         </div>
       </div>
       {slides.map((slide, id) => (
-        <SwiperSlide
-          key={id}
-          style={{ minHeight: '400px' }}
-        >
-          {slide}
-        </SwiperSlide>
+        <div key={id}>
+          <SwiperSlide style={{ minHeight: '400px' }}>{slide}</SwiperSlide>
+        </div>
       ))}
     </Swiper>
   );

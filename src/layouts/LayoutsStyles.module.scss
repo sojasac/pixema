@@ -6,9 +6,13 @@
   padding: 0 65px;
   position: relative;
 
+  .mainContent {
+    display: grid;
+    grid-template-columns: 20% 80%;
+  }
+
   main {
-    margin: 0 10%;
-    max-width: var(--pixema-max-width);
+    width: 100%;
   }
 
   form {
@@ -40,13 +44,35 @@
   }
 }
 
+@media (max-width: 1350px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
 @media (max-width: 1200px) {
   .container {
     padding: 0 30px;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .container {
+    .mainContent {
+      grid-template-columns: 100%;
+      margin: 0 10%;
+    }
+    main {
+      min-height: calc(100vh - 270px);
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    .mainContent {
+      grid-template-columns: 100%;
+      margin: 0 5%;
+    }
     main {
       min-height: calc(100vh - 270px);
     }

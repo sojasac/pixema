@@ -87,6 +87,10 @@
     .contentWrap {
       border-bottom: 2px solid var(--pixema-text-color);
       padding-bottom: 10px;
+      .infoWrap > p {
+        max-height: 80px;
+        overflow: hidden;
+      }
       &:hover {
         border-color: var(--pixema-text-color);
       }

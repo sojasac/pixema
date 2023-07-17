@@ -80,6 +80,14 @@ table {
     }
   }
 }
+.genres {
+  color: var(--pixema-light-color);
+  font-size: 14px;
+  white-space: nowrap;
+  &:not(:last-child):after {
+    content: ' • ';
+  }
+}
 
 .recomendWrap {
   margin-bottom: 20px;

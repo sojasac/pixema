@@ -4,11 +4,14 @@ import classNames from 'classnames';
 import Select, { type MultiValue } from 'react-select';
 
 import { ReactComponent as ArrowTop } from '~/assets/svg/up-arrow.svg';
+import { type FetchError } from '~/entities/entities';
+import { NotFound } from '~/features/NotFound/NotFound';
 import { PaginationComponent } from '~/features/Pagination/Pagination';
 import { Titles } from '~/features/Titles/TitlesComponent/Titles';
 import { Button } from '~/shared/ui/button/Button';
 import { InputField, RadioInput } from '~/shared/ui/inputField/InputField';
 import { Loader } from '~/shared/ui/loader/Loader';
+import { isFetchBaseQueryErrorType } from '~/shared/utils/utils';
 import { type MovieParameters } from '~/store/api/titles/titles.api';
 import {
   useGetTitlesQuery,
@@ -67,7 +70,6 @@ export const AllTitlesPage = () => {
 
   const toggleFilters = () => {
     setIsFilterActive((isOpened) => !isOpened);
-    document.body.classList.toggle('falseScroll');
   };
   const handleGenreChange = (newValue: MultiValue<OptionProperties>) => {
     updateFormValues({
@@ -96,9 +98,9 @@ export const AllTitlesPage = () => {
   };
   const { data: titles } = useGetTitlesQuery({
     page: 1,
-    limit: 35
+    limit: 60
   });
-  const [getTitles, { isError, isLoading, isSuccess, data }] =
+  const [getTitles, { isError, isLoading, isSuccess, data, error }] =
     useLazyGetTitlesQuery();
   useEffect(() => {
     window.scrollTo({
@@ -109,8 +111,8 @@ export const AllTitlesPage = () => {
   if (isLoading) {
     return <Loader />;
   }
-  if (isError) {
-    <div>Ooops, something went wrong!</div>;
+  if (isError && isFetchBaseQueryErrorType(error) && error.status === 404) {
+    return <NotFound message={(error.data as FetchError).message} />;
   }
   if ((isSuccess && data) || titles) {
     const {
@@ -142,7 +144,7 @@ export const AllTitlesPage = () => {
                 event.preventDefault();
 
                 void getTitles({
-                  limit: 35,
+                  limit: 60,
                   page: 1,
                   ...formState
                 });
@@ -156,6 +158,8 @@ export const AllTitlesPage = () => {
                   onClick={toggleFilters}
                   type="button"
                 />
+              </div>
+              <div>
                 <p>Sort by</p>
                 <div className={AllTitlesStyle['radio-inputs']}>
                   {RadioInputSchema.map((radioButton) => (
@@ -281,19 +285,22 @@ export const AllTitlesPage = () => {
             void getTitles(
               {
                 page: page + 1,
-                limit: 35,
+                limit: 60,
                 ...formState
               },
               true
             )
           }
           onPrevPage={() =>
-            void getTitles({ page: page - 1, limit: 35, ...formState }, true)
+            void getTitles({ page: page - 1, limit: 60, ...formState }, true)
           }
           currentPage={page}
           total={pages}
         />
       </div>
     );
+  }
+  if (isSuccess && (!data || !titles)) {
+    return <NotFound message="Not Found!" />;
   }
 };

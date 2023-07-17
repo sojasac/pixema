@@ -5,10 +5,10 @@
   margin-bottom: 50px;
 }
 .containerFilters {
-  top: -100%;
-  position: absolute;
-  left: calc(50% - 270px);
-  width: 450px;
+  top: -200%;
+  position: fixed;
+  left: 40%;
+  width: 30%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -34,6 +34,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    box-sizing: border-box;
   }
   .formBtn {
     margin-top: 10px;
@@ -44,45 +45,75 @@
     color: var(--pixema-text-color);
   }
   &Active {
-    top: 5%;
+    top: 20%;
   }
 }
 .filtersButton {
   position: sticky;
   right: 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 1600px) {
   .containerFilters {
-    width: 80%;
+    width: 40%;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 1400px) and (max-height: 650px) {
   .containerFilters {
-    left: 0;
-    margin: 0 2%;
-    &Active {
-      top: 2%;
+    > div > p {
+      margin: 0;
+      margin-bottom: 10px;
     }
-  }
-}
-@media (max-width: 500px) {
-  .containerFilters {
-    width: 95%;
-    margin: 0 2px;
-    padding: 10px;
     &Active {
       top: 1%;
     }
   }
 }
+@media (max-width: 1150px) {
+  .containerFilters {
+    width: 60%;
+    left: 20%;
+  }
+}
+@media (max-width: 850px) {
+  .containerFilters {
+    width: 80%;
+    left: 10%;
+  }
+}
+@media (max-width: 650px) {
+  .containerFilters {
+    width: 90%;
+    left: 5%;
+  }
+}
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
+  .containerFilters {
+    width: 100%;
+    left: 0;
+  }
+}
+
+@media (max-width: 500px) {
   .titlesHeader {
     flex-direction: column;
   }
   .containerFilters {
+    .inputFields {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+@media (max-width: 450px) {
+  .containerFilters {
+    > div > p {
+      margin: 0;
+      margin-bottom: 10px;
+    }
     &Active {
-      top: 1%;
+      top: 0;
     }
   }
 }

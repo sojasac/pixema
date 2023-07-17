@@ -1,0 +1,40 @@
+.bodyNotFound {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url('404.png') center no-repeat #262626;
+  .content {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    left: 0px;
+    & a {
+      display: inline-block;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.3);
+      &:hover {
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 460px), screen and (max-height: 700px) {
+  .bodyNotFound {
+    background-size: contain;
+    .content {
+      position: static;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 0px;
+        opacity: 0;
+      }
+    }
+  }
+}

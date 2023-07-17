@@ -97,6 +97,7 @@ export interface MovieResponse {
 export interface MovieSearchResponse {
   id: number;
   name: string;
+  year: number;
   alternativeName: string;
   enName: string;
   type: string;

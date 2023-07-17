@@ -98,18 +98,16 @@
 }
 
 @media (max-width: 650px) {
-  .switchContainer {
-    left: 0;
-  }
   .switch {
-    width: 1em;
+    width: 2.5em;
+    height: 1.5em;
   }
   .slider:before {
     width: 1.2em;
     height: 1.2em;
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 550px) {
   .slider:before {
     width: 1em;
     height: 1em;

@@ -1,9 +1,14 @@
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
   color: var(--pixema-text-color);
   > p {
     cursor: default;
+  }
+}
+
+@media (max-width: 1150px) {
+  .container {
+    justify-content: center;
   }
 }

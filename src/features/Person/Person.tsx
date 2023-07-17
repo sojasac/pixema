@@ -1,4 +1,4 @@
-import noposter from '~/assets/layouts/noposter.jpg';
+import noposter from '~/assets/svg/noposter.jpg';
 import { type Person } from '~/store/api/user/person/person.types';
 
 import { PersonInfoTable } from './PersonComponents/PersonTableInfo';
