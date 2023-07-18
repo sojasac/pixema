@@ -6,6 +6,7 @@ export interface MovieResponse {
   year: number;
   description: string;
   shortDescription: string;
+  sortType: 1 | -1;
   rating: {
     kp: number;
     imdb: number;

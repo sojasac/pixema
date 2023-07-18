@@ -11,13 +11,14 @@ export interface MovieParameters {
   'rating.kp'?: string;
   sortType?: 1 | -1;
   'rating.filmCritics'?: string;
+  'poster.url'?: string;
 }
 
 export const titlesApi = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
     getTitle: build.query<MovieResponse, { id: string }>({
-      query: ({ id }) => ({ url: `/v1.3/movie/${id}` })
+      query: ({ id }) => ({ url: `/v1.4/movie/${id}` })
     }),
     getTitles: build.query<TitlesResponse, MovieParameters>({
       query: ({
@@ -30,16 +31,22 @@ export const titlesApi = baseApi.injectEndpoints({
         'countries.name': countries,
         'rating.kp': rating,
         'rating.filmCritics': ratingCritics,
-        sortType
+        sortType,
+        'poster.url': url
       }) => {
         const parameters = new URLSearchParams();
         page && parameters.append('page', `${page}`);
         parameters.append('limit', `${limit}`);
-        sortField && parameters.append('sortField', sortField);
+        sortField
+          ? parameters.append('sortField', sortField)
+          : parameters.append('sortField', 'rating.kp');
         if (genres) {
           for (const genre of genres) {
             parameters.append('genres.name', genre);
           }
+        } else {
+          parameters.append('genres.name', '!документальный');
+          parameters.append('genres.name', '!короткометражка');
         }
         if (countries) {
           for (const country of countries) {
@@ -49,10 +56,15 @@ export const titlesApi = baseApi.injectEndpoints({
         type && parameters.append('type', type);
         rating && parameters.append('rating.kp', rating);
         year && parameters.append('year', `${year}`);
-        sortType && parameters.append('sortType', `${sortType}`);
         ratingCritics && parameters.append('rating.filmCritics', ratingCritics);
+        sortType
+          ? parameters.append('sortType', `${sortType}`)
+          : parameters.append('sortType', `${-1}`);
+        url
+          ? parameters.append('poster.url', `${url}`)
+          : parameters.append('poster.url', '!null');
         return {
-          url: '/v1.3/movie',
+          url: '/v1.4/movie',
           params: parameters
         };
       }

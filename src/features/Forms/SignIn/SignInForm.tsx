@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { NavLink, Navigate } from 'react-router-dom';
+import { Link, NavLink, Navigate } from 'react-router-dom';
 
 import { Button } from '~/shared/ui/button/Button';
 import { InputField } from '~/shared/ui/inputField/InputField';
@@ -54,12 +54,12 @@ export const SignIn = () => {
           style={{ marginBottom: '10px' }}
           shouldFitContainer
         />
-        <a
-          href="#"
+        <Link
+          to={'/auth/reset-password'}
           style={{ textDecoration: 'none', color: '#afb2b6' }}
         >
           Forgot password?
-        </a>
+        </Link>
       </div>
       <div>
         <Button

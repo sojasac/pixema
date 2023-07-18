@@ -1,3 +1,3 @@
 export const primaryToken = '889|i4rQHWcL8YDB40SfITLe1TNgbjBokwMqhHWWUuHj';
 export const secondaryToken = '163ESM8-NVC44Q2-M67GGEQ-G40HXN2';
-export const thirdToken = 'XDSA3T7-2FJMWC9-Q3Z41Y8-KWWKG9Z';
+export const thirdToken = '163ESM8-NVC44Q2-M67GGEQ-G40HXN2';

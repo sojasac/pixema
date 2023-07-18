@@ -17,7 +17,8 @@ export const TrendsPage = () => {
     limit: 30,
     type: 'movie',
     sortField: 'rating.kp',
-    'rating.filmCritics': '7-10'
+    'rating.filmCritics': '7-10',
+    sortType: -1
   });
   const [getTitles, result] = useLazyGetTitlesQuery();
   if (result.status === 'uninitialized' && movies) {
@@ -36,7 +37,8 @@ export const TrendsPage = () => {
                   limit: 30,
                   type: 'movie',
                   sortField: 'rating.kp',
-                  'rating.filmCritics': '7-10'
+                  'rating.filmCritics': '7-10',
+                  sortType: -1
                 },
                 true
               )
@@ -52,7 +54,8 @@ export const TrendsPage = () => {
                   limit: 30,
                   type: 'tv-series',
                   sortField: 'rating.kp',
-                  'rating.filmCritics': '7-10'
+                  'rating.filmCritics': '7-10',
+                  sortType: -1
                 },
                 true
               )
@@ -68,7 +71,8 @@ export const TrendsPage = () => {
                   limit: 30,
                   type: 'anime',
                   sortField: 'rating.kp',
-                  'rating.filmCritics': '7-10'
+                  'rating.filmCritics': '7-10',
+                  sortType: -1
                 },
                 true
               )
@@ -84,7 +88,8 @@ export const TrendsPage = () => {
                   limit: 30,
                   type: 'cartoon',
                   sortField: 'rating.kp',
-                  'rating.filmCritics': '7-10'
+                  'rating.filmCritics': '7-10',
+                  sortType: -1
                 },
                 true
               )
@@ -100,7 +105,8 @@ export const TrendsPage = () => {
                   limit: 30,
                   type: 'animated-series',
                   sortField: 'rating.kp',
-                  'rating.filmCritics': '7-10'
+                  'rating.filmCritics': '7-10',
+                  sortType: -1
                 },
                 true
               )
@@ -140,7 +146,8 @@ export const TrendsPage = () => {
                     limit: 14,
                     type: 'movie',
                     sortField: 'rating.kp',
-                    'rating.filmCritics': '7-10'
+                    'rating.filmCritics': '7-10',
+                    sortType: -1
                   },
                   true
                 )
@@ -156,7 +163,8 @@ export const TrendsPage = () => {
                     limit: 14,
                     type: 'tv-series',
                     sortField: 'rating.kp',
-                    'rating.filmCritics': '7-10'
+                    'rating.filmCritics': '7-10',
+                    sortType: -1
                   },
                   true
                 )
@@ -172,7 +180,8 @@ export const TrendsPage = () => {
                     limit: 14,
                     type: 'anime',
                     sortField: 'rating.kp',
-                    'rating.filmCritics': '7-10'
+                    'rating.filmCritics': '7-10',
+                    sortType: -1
                   },
                   true
                 )
@@ -188,7 +197,8 @@ export const TrendsPage = () => {
                     limit: 14,
                     type: 'cartoon',
                     sortField: 'rating.kp',
-                    'rating.filmCritics': '7-10'
+                    'rating.filmCritics': '7-10',
+                    sortType: -1
                   },
                   true
                 )
@@ -204,7 +214,8 @@ export const TrendsPage = () => {
                     limit: 14,
                     type: 'animated-series',
                     sortField: 'rating.kp',
-                    'rating.filmCritics': '7-10'
+                    'rating.filmCritics': '7-10',
+                    sortType: -1
                   },
                   true
                 )

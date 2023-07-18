@@ -34,12 +34,16 @@ export const SearchPage = () => {
   if (status === 'pending' || isLoading) {
     return <Loader />;
   }
-  if (isSuccess && (data || titles)) {
+  if ((isSuccess && data) || titles) {
     const {
       docs: movies,
       page,
       pages
     } = (data as TitlesSearchResponse) || (titles as TitlesSearchResponse);
+
+    if (pages === 0) {
+      return <NotFound message="Nothing found for this search..." />;
+    }
 
     return (
       <div>
@@ -66,8 +70,5 @@ export const SearchPage = () => {
         />
       </div>
     );
-  }
-  if (isSuccess && (!data || !titles)) {
-    <NotFound message="Nothing found for this search..." />;
   }
 };

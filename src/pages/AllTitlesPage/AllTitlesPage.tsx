@@ -107,7 +107,6 @@ export const AllTitlesPage = () => {
       top: 0
     });
   }, [data?.page]);
-
   if (isLoading) {
     return <Loader />;
   }
@@ -273,7 +272,7 @@ export const AllTitlesPage = () => {
                   type="submit"
                   onClick={toggleFilters}
                 >
-                  click
+                  Show results
                 </Button>
               </div>
             </form>

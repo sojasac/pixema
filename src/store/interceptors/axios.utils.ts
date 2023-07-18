@@ -11,7 +11,7 @@ import {
 import { AUTH_API_URL } from '../store.constants';
 
 export const checkTokensInterceptor = (config: InternalAxiosRequestConfig) => {
-  const accessToken = localStorage.getItem('@blog/access-token');
+  const accessToken = localStorage.getItem('@pixema/access-token');
   if (accessToken) {
     config.headers.set('Authorization', `Bearer ${accessToken}`);
   }
@@ -36,14 +36,14 @@ export const getAccessToken = async (
 };
 export const proccessingError = async (error: AxiosError) => {
   const errorStatus = error.response?.status;
-  const refreshToken = localStorage.getItem('@blog/refresh-token');
+  const refreshToken = localStorage.getItem('@pixema/refresh-token');
   let requestRefreshCount = 0;
   if (errorStatus === 401 && refreshToken && requestRefreshCount < 3) {
     requestRefreshCount += 1;
     const { access } = await getAccessToken(refreshToken);
     if (access) {
-      localStorage.setItem('@blog/access-token', access);
-      localStorage.setItem('@blog/refresh-token', refreshToken);
+      localStorage.setItem('@pixema/access-token', access);
+      localStorage.setItem('@pixema/refresh-token', refreshToken);
     }
   }
   return error;

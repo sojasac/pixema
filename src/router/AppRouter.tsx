@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { ConfirmEmail } from '~/features/Forms/ConfirmEmail/ConfirmEmail';
+import { ResetPassword } from '~/features/Forms/ResetPassword/ResetPassword';
+import { ResetPasswordConfirm } from '~/features/Forms/ResetPassword/ResetPasswordConfirm';
 import { PageNotFound } from '~/layouts/404_Layout/404';
 import { FormsLayout } from '~/layouts/FormsLayout/FormsLayout';
 import { TitleLayout } from '~/layouts/TitleLayout/TitleLayout';
@@ -67,12 +69,16 @@ const routerSchema = createBrowserRouter([
         Component: SignUpPage
       },
       {
-        path: '/auth/confirm-email',
-        Component: ConfirmEmail
+        path: '/auth/reset-password',
+        Component: ResetPassword
       },
       {
         path: 'activate/:uid/:token',
         Component: ConfirmEmail
+      },
+      {
+        path: '/password/reset/confirm/:uid/:token',
+        Component: ResetPasswordConfirm
       }
     ]
   },

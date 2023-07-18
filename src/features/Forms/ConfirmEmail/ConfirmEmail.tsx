@@ -24,7 +24,7 @@ export const ConfirmEmail = () => {
     activateEmail(tokens as ActivateEmail)
       .then(() => isSuccess)
       .catch(() => isError);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- more flexible rule
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- more flexible dependencies
   }, [tokens, activateEmail]);
   if (isError) {
     return (

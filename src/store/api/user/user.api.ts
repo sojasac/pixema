@@ -26,6 +26,21 @@ export interface ActivateEmail {
 export interface ResendEmail {
   email: string;
 }
+export interface ResetPassword {
+  email: string;
+}
+export interface ResetPasswordConfirmPayload {
+  uid: string;
+  token: string;
+  new_password: string;
+  email: string;
+  confirmPassword: string;
+}
+export interface ResetPasswordConfirm {
+  uid: string;
+  token: string;
+  new_password: string;
+}
 export const userApi = authApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
@@ -49,6 +64,23 @@ export const userApi = authApi.injectEndpoints({
         method: 'POST',
         body: payload
       })
+    }),
+    resetPassword: build.mutation<ResetPassword, ResetPassword>({
+      query: (payload) => ({
+        url: `${AUTH_API_URL}/auth/users/reset_password/`,
+        method: 'POST',
+        body: payload
+      })
+    }),
+    resetPasswordConfirm: build.mutation<
+      ResetPasswordConfirm,
+      ResetPasswordConfirmPayload
+    >({
+      query: (payload) => ({
+        url: `${AUTH_API_URL}/auth/users/reset_password_confirm/`,
+        method: 'POST',
+        body: payload
+      })
     })
   })
 });
@@ -56,5 +88,7 @@ export const userApi = authApi.injectEndpoints({
 export const {
   useCreateUserMutation,
   useConfirmEmailMutation,
-  useResendEmailMutation
+  useResendEmailMutation,
+  useResetPasswordMutation,
+  useResetPasswordConfirmMutation
 } = userApi;

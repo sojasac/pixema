@@ -5,7 +5,7 @@
   margin-bottom: 50px;
 }
 .containerFilters {
-  top: -200%;
+  top: -500%;
   position: fixed;
   left: 40%;
   width: 30%;
@@ -57,7 +57,7 @@
     width: 40%;
   }
 }
-@media (max-width: 1400px) and (max-height: 650px) {
+@media (max-width: 1400px) and (max-height: 800px) {
   .containerFilters {
     > div > p {
       margin: 0;
@@ -68,6 +68,12 @@
     }
   }
 }
+@media (max-height: 620px) {
+  .containerFilters {
+    position: absolute;
+  }
+}
+
 @media (max-width: 1150px) {
   .containerFilters {
     width: 60%;
